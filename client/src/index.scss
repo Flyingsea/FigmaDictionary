@@ -1,0 +1,12 @@
+@import './_variables.scss';
+
+h1 {
+  font-size: $font-text-display-size + px;
+}
+
+
+body {
+  font-family: $font-text-display-family;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
