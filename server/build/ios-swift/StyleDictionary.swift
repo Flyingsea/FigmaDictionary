@@ -3,7 +3,7 @@
 // StyleDictionary.swift
 //
 // Do not edit directly
-// Generated on Mon, 30 Dec 2019 10:15:57 GMT
+// Generated on Tue, 21 Jan 2020 11:52:22 GMT
 //
 
 
@@ -148,7 +148,7 @@ public class StyleDictionary {
     public static let fontHeaderXlargeSize = "32"
     public static let fontHeaderXlargeSpacing = "normal"
     public static let fontHeaderXlargeWeight = "700"
-    public static let fontTextDisplayFamily = "Inter, Inter-Bold"
+    public static let fontTextDisplayFamily = "Beatrice Display, BeatriceDisplay-Bold"
     public static let fontTextDisplayLineheight = "76"
     public static let fontTextDisplaySize = "64"
     public static let fontTextDisplaySpacing = "normal"

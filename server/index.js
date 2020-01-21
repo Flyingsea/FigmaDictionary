@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors')
 const fetch = require('node-fetch');
 const fs = require('fs');
-var StyleDictionary = require("style-dictionary")
+const path = require('path');
 
 const {
   get,
@@ -11,10 +11,6 @@ const {
 } = server.router;
 
 // Handle requests to the url "/" ( http://localhost:3000/ )
-server({
-  port: 5000,
-  secret: 'UHBLYA',
-}, ctx => 'Hello 世界');
 
 
 const app = express();
@@ -28,6 +24,7 @@ app.get('/api/build', cors(), (req, res) => {
     "29441-121e495c-c18b-48b8-8d82-1fb9b285032d",
     "klLtlH02wB1UDeAEyNeUJ9"
   );
+
   console.log("GET done!");
 
 });
@@ -234,7 +231,8 @@ function getTypography(stylesArtboard) {
 }
 
 function createStyles(){
-  var styleDictionary = StyleDictionary.extend({
+
+  var styleDictionary = require('style-dictionary').extend({
     source: ["properties/*.json"],
       platforms: {
         scss: {
@@ -342,9 +340,124 @@ function createStyles(){
 
 
   });
-  styleDictionary.buildAllPlatforms();
-  delete styleDictionary;
 
+  styleDictionary.buildAllPlatforms();
+}
+
+function cleanStyles(){
+
+
+  var styleDictionary = require('style-dictionary').extend({
+    source: ["properties/*.json"],
+      platforms: {
+        scss: {
+          transformGroup: "scss",
+          buildPath: "build/scss/",
+          files: [{
+            destination: "_variables.scss",
+            format: "scss/variables"
+          },{
+            destination: "../../../client/src/_variables.scss",
+            format: "scss/variables"
+          },]
+        },
+        android: {
+          transformGroup: "android",
+          buildPath: "build/android/",
+          files: [{
+            destination: "font_dimens.xml",
+            format: "android/fontDimens"
+          }, {
+            destination: "colors.xml",
+            format: "android/colors"
+          }]
+        },
+        ios: {
+          transformGroup: "ios",
+          buildPath: "build/ios/",
+          files: [{
+            destination: "StyleDictionaryColor.h",
+            format: "ios/colors.h",
+            className: "StyleDictionaryColor",
+            type: "StyleDictionaryColorName",
+            filter: {
+              attributes: {
+                category: "color"
+              }
+            }
+          }, {
+            destination: "StyleDictionaryColor.m",
+            format: "ios/colors.m",
+            className: "StyleDictionaryColor",
+            type: "StyleDictionaryColorName",
+            filter: {
+              attributes: {
+                category: "color"
+              }
+            }
+          }, {
+            destination: "StyleDictionarySize.h",
+            format: "ios/static.h",
+            className: "StyleDictionarySize",
+            type: "float",
+            filter: {
+              "attributes": {
+                "category": "size"
+              }
+            }
+          }, {
+            destination: "StyleDictionarySize.m",
+            format: "ios/static.m",
+            className: "StyleDictionarySize",
+            type: "float",
+            filter: {
+              attributes: {
+                category: "size"
+              }
+            }
+          }]
+        },
+        'ios-swift': {
+          transformGroup: "ios-swift",
+          buildPath: "build/ios-swift/",
+          files: [{
+            destination: "StyleDictionary.swift",
+            format: "ios-swift/class.swift",
+            className: "StyleDictionary",
+            filter: {}
+          }]
+        },
+        'ios-swift-separate-enums': {
+          transformGroup: "ios-swift-separate",
+          buildPath: "build/ios-swift/",
+          files: [{
+            destination: "StyleDictionaryColor.swift",
+            format: "ios-swift/enum.swift",
+            className: "StyleDictionaryColor",
+            filter: {
+              attributes: {
+                category: "color"
+              }
+            }
+          }, {
+            destination: "StyleDictionarySize.swift",
+            format: "ios-swift/enum.swift",
+            className: "StyleDictionarySize",
+            type: "float",
+            filter: {
+              attributes: {
+                category: "size"
+              }
+            }
+          }]
+        }
+      }
+
+
+  });
+
+  styleDictionary.cleanAllPlatforms();
+  delete styleDictionary;
 }
 
 // main function
@@ -371,7 +484,6 @@ async function getStylesArtboard(figmaApiKey, figmaId) {
 
   };
 
-  //Object.assign(baseTokensJSON.token.grids, getGrids(stylesArtboard));
   Object.assign(baseTokensJSON.time, getDurations(stylesArtboard));
   Object.assign(baseTokensJSON.roundness, getRoundness(stylesArtboard));
   Object.assign(baseTokensJSON.shadow, getShadows(stylesArtboard));
@@ -379,8 +491,20 @@ async function getStylesArtboard(figmaApiKey, figmaId) {
   Object.assign(baseTokensJSON.color, getColors(stylesArtboard));
   Object.assign(baseTokensJSON.font, getTypography(stylesArtboard));
 
+  const directory = 'properties/';
 
-  fs.writeFileSync("properties/base.json", JSON.stringify(baseTokensJSON, null, 4), function(err) {
+  fs.readdir(directory, (err, files) => {
+    if (err) throw err;
+
+    for (const file of files) {
+      fs.unlinkSync(path.join(directory, file), err => {
+        if (err) throw err;
+      });
+    }
+  });
+
+  await console.log("deleted");
+  fs.writeFileSync("properties/"+Date.now()+".json", JSON.stringify(baseTokensJSON, null, 4), function(err) {
       if(err) {
           return console.log(err);
       }
@@ -388,8 +512,12 @@ async function getStylesArtboard(figmaApiKey, figmaId) {
           console.log("bbb")
       }
   });
+  await cleanStyles();
+
+  await console.log("cleared");
   await createStyles();
-  console.log("getStylesArtboard fn done")
+
+  await console.log("getStylesArtboard fn done");
 
 
 }
