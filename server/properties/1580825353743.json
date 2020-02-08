@@ -28,28 +28,6 @@
                 "type": "typography"
             },
             "size": {
-                "value": 32,
-                "type": "typography"
-            },
-            "weight": {
-                "value": 700,
-                "type": "typography"
-            },
-            "lineheight": {
-                "value": 36,
-                "type": "typography"
-            },
-            "spacing": {
-                "value": "normal",
-                "type": "typography"
-            }
-        },
-        "Header-large": {
-            "family": {
-                "value": "Inter, Inter-Bold",
-                "type": "typography"
-            },
-            "size": {
                 "value": 24,
                 "type": "typography"
             },
@@ -341,7 +319,7 @@
             "type": "color"
         },
         "CareemBlack100": {
-            "value": "rgba(45.0000125169754, 45.59936575591564, 46.00001245737076, 1)",
+            "value": "rgba(81.60004377365112, 0, 255, 1)",
             "type": "color"
         },
         "Purple60": {
