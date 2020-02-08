@@ -2,7 +2,7 @@
 
 <!--
   Do not edit directly
-  Generated on Tue, 04 Feb 2020 14:09:14 GMT
+  Generated on Sat, 08 Feb 2020 16:12:01 GMT
 -->
 <resources>
   <color name="color_careem_green_60">#ffe7f6ea</color>
@@ -26,7 +26,7 @@
   <color name="color_careem_black_70">#ffc3ccd2</color>
   <color name="color_careem_black_80">#ff8697a4</color>
   <color name="color_careem_black_90">#ff606c74</color>
-  <color name="color_careem_black_100">#ff5200ff</color>
+  <color name="color_careem_black_100">#ffff585d</color>
   <color name="color_purple_60">#fff3e4f3</color>
   <color name="color_purple_70">#ffe0bbe0</color>
   <color name="color_purple_80">#ffcc8ecb</color>

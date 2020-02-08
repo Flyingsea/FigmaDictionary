@@ -22,7 +22,7 @@ app.get('/api/build', cors(), (req, res) => {
   }));
   getStylesArtboard(
     "29441-121e495c-c18b-48b8-8d82-1fb9b285032d",
-    "klLtlH02wB1UDeAEyNeUJ9"
+    "jVyKdFBIcpDrgcf687DjH5"
   );
 
   console.log("GET done!");

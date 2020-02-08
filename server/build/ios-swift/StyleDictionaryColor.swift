@@ -3,7 +3,7 @@
 // StyleDictionaryColor.swift
 //
 // Do not edit directly
-// Generated on Tue, 04 Feb 2020 14:09:14 GMT
+// Generated on Sat, 08 Feb 2020 16:12:01 GMT
 //
 
 import UIKit
@@ -23,7 +23,7 @@ public enum StyleDictionaryColor {
     public static let butterscotch70 = UIColor(red: 1.000, green: 0.925, blue: 0.773, alpha:1)
     public static let butterscotch80 = UIColor(red: 1.000, green: 0.875, blue: 0.624, alpha:1)
     public static let butterscotch90 = UIColor(red: 1.000, green: 0.824, blue: 0.475, alpha:1)
-    public static let careemBlack100 = UIColor(red: 0.322, green: 0.000, blue: 1.000, alpha:1)
+    public static let careemBlack100 = UIColor(red: 1.000, green: 0.345, blue: 0.365, alpha:1)
     public static let careemBlack40 = UIColor(red: 0.976, green: 0.980, blue: 0.984, alpha:1)
     public static let careemBlack50 = UIColor(red: 0.949, green: 0.961, blue: 0.973, alpha:1)
     public static let careemBlack60 = UIColor(red: 0.890, green: 0.910, blue: 0.925, alpha:1)
