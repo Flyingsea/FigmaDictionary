@@ -38,6 +38,7 @@ const propertiesToCTI = {
   'size':                 {category: 'size',      type: 'icon'}
 }
 
+//Custom transform for CGFLoat
 const CGFloat = {
   type: 'value',
   matcher: function(prop) {
@@ -48,7 +49,7 @@ const CGFloat = {
   }
 }
 
-
+//Custom transform for FontSP
 const FontSP = {
   type: 'value',
   matcher: function(prop) {
@@ -59,6 +60,7 @@ const FontSP = {
   }
 }
 
+//Custom transform for UIColor with comments
 const CustomUIColorSwift = {
   type: 'value',
   matcher: function(prop) {

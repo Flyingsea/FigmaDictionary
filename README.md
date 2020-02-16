@@ -1,87 +1,51 @@
-# Careem Figma Tokens
+#  Careem Figma Tokens
 
-Automated token generate
+An automated design token generation from Figma.
+
+Figma token library
+https://www.figma.com/file/jVyKdFBIcpDrgcf687DjH5/Design-Tokens-API?node-id=1%3A31
+
 
 ## Getting Started
 
+Some context on the Amazon Style Dictionary tool:
+
+Style dictionary tutorials
+https://amzn.github.io/style-dictionary/#/
+
+Style dictionary examples
+https://github.com/amzn/style-dictionary/tree/master/examples
+
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
-
-What things you need to install the software and how to install them
+### Project structure
 
 ```
-Give examples
+├── client/ //web client to initate token generation
+├── server/ //node server that handles generation
+│   ├── index.js //tokens JSON and server response handling
+│   ├── config.js // Style Dictionary config
+│   ├── ...
+├── tokens/ //server output files
+│   ├── android/
+│   ├── ios-swift/
+│   ├── scss/
+
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+To run the server:
 
 ```
-Give the example
+cd server
+node .  
 ```
+You will need to restart the server each time you change the code
 
-And repeat
-
+To run the client
 ```
-until finished
+cd client
+npm install
+npm run
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc

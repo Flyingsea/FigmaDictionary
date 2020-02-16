@@ -9,8 +9,6 @@ var crypto = require('crypto');
 const {get,post} = server.router;
 const app = express();
 
-// Handle requests to the url "/" ( http://localhost:3000/ )
-
 
 // Path where we store the download sessions
 const DL_SESSION_FOLDER = '/var/download_sessions';
@@ -72,6 +70,7 @@ function deleteDownload(downloadSid, callback) {
   });
 }
 
+//Startup
 app.get('/api/build', cors(), (req, res) => {
   getStylesArtboard(
     "29441-121e495c-c18b-48b8-8d82-1fb9b285032d",
@@ -101,12 +100,13 @@ app.listen(3001, () => {
   );}
 );
 
-
+//Creating token
 function createStyles(){
   const styleDictionary = require('style-dictionary').extend('config.js');
   styleDictionary.buildAllPlatforms();
 }
 
+//Cleaning tokenss
 function cleanStyles(){
   const styleDictionary = require('style-dictionary').extend('config.js');
   styleDictionary.cleanAllPlatforms();
@@ -114,8 +114,8 @@ function cleanStyles(){
 }
 
 
-////////////////////////////////////////////////
 
+//Color JSON
 function getColors(stylesArtboard) {
   // empty "colors obj" wheree we will store all colors
   const colors = {};
@@ -148,6 +148,7 @@ function getColors(stylesArtboard) {
   return colors;
 }
 
+//Spacings JSON
 function getSpacing(stylesArtboard) {
   // empty object
   const spacing = {
@@ -260,8 +261,7 @@ function getShadows(stylesArtboard) {
 }
 
 
-
-
+//Basic typography scale JSON
 function getScale(stylesArtboard) {
   // empty object
   const typography = {};
@@ -313,6 +313,7 @@ function getScale(stylesArtboard) {
 }
 
 
+//Font styles JSON
 function getFontStyles(stylesArtboard) {
   // empty object
   const typography = {};
@@ -367,23 +368,19 @@ function getFontStyles(stylesArtboard) {
     }
   });
 
+  //Getting night colors
   typographyAtrboard = stylesArtboard.filter(item => {
     return item.name === "Styles Night";
   })[0].children[0].children;
   console.log(typographyAtrboard);
   typographyAtrboard.map((fontItem, i) => {
     if (fontItem.name.startsWith("@")) {
-
       let fontObj = {
         "font-color-night": {
         value: `rgba(${fontItem.fills[0].color.r*255}, ${fontItem.fills[0].color.g*255}, ${fontItem.fills[0].color.b*255}, ${fontItem.fills[0].color.a})`,
-
         }
       };
-
       Object.assign(typography[fontItem.name.substring(1)], fontObj);
-
-
     }
   });
   return typography;
@@ -403,6 +400,7 @@ async function getStylesArtboard(figmaApiKey, figmaId) {
     return item.name === "Tokens";
   })[0].children;
 
+  //Json structure
   var baseTokensJSON = {
     CoreFonts: {},
     color: {},
@@ -421,6 +419,7 @@ async function getStylesArtboard(figmaApiKey, figmaId) {
 
   const directory = 'properties/';
 
+  //Cleaning the properties directory
   fs.readdir(directory, (err, files) => {
     if (err) throw err;
 
@@ -430,8 +429,10 @@ async function getStylesArtboard(figmaApiKey, figmaId) {
       });
     }
   });
-
   await console.log("deleted");
+
+
+  //Writing new properties JSON
   fs.writeFileSync("properties/"+Date.now()+".json", JSON.stringify(baseTokensJSON, null, 4), function(err) {
       if(err) {
           return console.log(err);
@@ -440,10 +441,11 @@ async function getStylesArtboard(figmaApiKey, figmaId) {
           console.log("bbb")
       }
   });
+
+  //Cleaning and creating new styles
   await cleanStyles();
   await console.log("cleared");
   await createStyles();
   await console.log("✅done"+Date.now());
-
 
 }
