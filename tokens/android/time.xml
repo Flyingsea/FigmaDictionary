@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Do not edit directly
+  Generated on Sun, 16 Feb 2020 08:06:28 GMT
+-->
+<resources>
+  <integer name="time_duration_100">130</integer>
+  <integer name="time_duration_200">160</integer>
+  <integer name="time_duration_300">190</integer>
+  <integer name="time_duration_400">220</integer>
+  <integer name="time_duration_500">250</integer>
+  <integer name="time_duration_600">300</integer>
+  <integer name="time_duration_700">350</integer>
+  <integer name="time_duration_800">400</integer>
+  <integer name="time_duration_900">450</integer>
+  <integer name="time_duration_1000">500</integer>
+  
+</resources>

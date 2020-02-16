@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Do not edit directly
+  Generated on Sun, 16 Feb 2020 08:06:28 GMT
+-->
+<resources>
+  <string name="core_fonts_text_display_font_family">Inter, Inter-Bold</string>
+  <string name="core_fonts_header_xlarge_font_family">Inter, Inter-Bold</string>
+  <string name="core_fonts_header_large_font_family">Inter, Inter-Bold</string>
+  <string name="core_fonts_header_medium_font_family">Inter, Inter-Bold</string>
+  <string name="core_fonts_header_small_font_family">Inter, Inter-SemiBold</string>
+  <string name="core_fonts_header_light_font_family">Inter, Inter-SemiBold</string>
+  <string name="core_fonts_body_large_font_family">Inter, Inter-Regular</string>
+  <string name="core_fonts_body_small_font_family">Inter, Inter-Regular</string>
+  <string name="core_fonts_body_small_highlight_font_family">Inter, Inter-SemiBold</string>
+  <string name="core_fonts_body_micro_font_family">Inter, Inter-Medium</string>
+  <string name="font_styles_link_normal_grey_font_family">Inter, Inter-Regular</string>
+  <string name="font_styles_chip_label_medium_font_family">Inter, Inter-SemiBold</string>
+  <string name="font_styles_placeholder_normal_font_family">Inter, Inter-Regular</string>
+  <string name="font_styles_bottomsheet_title_small_font_family">Inter, Inter-Bold</string>
+  <string name="font_styles_link_micro_green_font_family">Inter, Inter-Medium</string>
+  <string name="font_styles_list_title_small_font_family">Inter, Inter-SemiBold</string>
+  <string name="font_styles_list_description_font_family">Inter, Inter-Regular</string>
+  <string name="font_styles_list_title_big_font_family">Inter, Inter-SemiBold</string>
+  <string name="font_styles_tooltip_label_font_family">Inter, Inter-Regular</string>
+  <string name="font_styles_section_title_small_font_family">Inter, Inter-SemiBold</string>
+  <string name="font_styles_screen_title_micro_font_family">Inter, Inter-SemiBold</string>
+  <string name="font_styles_list_title_big_selected_font_family">Inter, Inter-SemiBold</string>
+  <string name="font_styles_info_label_timestamp_font_family">Inter, Inter-Medium</string>
+  <string name="font_styles_info_label_small_rewards_font_family">Inter, Inter-Medium</string>
+  <string name="font_styles_info_label_small_error_font_family">Inter, Inter-Medium</string>
+  <string name="font_styles_paragraph_title_big_font_family">Inter, Inter-Bold</string>
+  <string name="font_styles_paragraph_small_font_family">Inter, Inter-Regular</string>
+  <string name="font_styles_paragraph_small_secondary_font_family">Inter, Inter-Regular</string>
+  <string name="font_styles_paragraph_title_medium_font_family">Inter, Inter-Bold</string>
+  <string name="font_styles_tab_not_selected_font_family">Inter, Inter-SemiBold</string>
+  <string name="font_styles_tab_selected_font_family">Inter, Inter-SemiBold</string>
+  <string name="font_styles_paragraph_medium_secondary_font_family">Inter, Inter-Regular</string>
+  <string name="font_styles_paragraph_medium_font_family">Inter, Inter-Regular</string>
+  <string name="font_styles_screen_title_big_font_family">Inter, Inter-Bold</string>
+  <string name="font_styles_screen_title_small_font_family">Inter, Inter-Bold</string>
+  <string name="font_styles_bottomsheet_title_big_font_family">Inter, Inter-Bold</string>
+  <string name="font_styles_chip_label_small_font_family">Inter, Inter-SemiBold</string>
+  <string name="font_styles_chip_label_small_gold_font_family">Inter, Inter-SemiBold</string>
+  <string name="font_styles_button_primary_small_font_family">Inter, Inter-Bold</string>
+  <string name="font_styles_button_primary_big_font_family">Inter, Inter-Bold</string>
+  <string name="font_styles_item_title_font_family">Inter, Inter-SemiBold</string>
+  <string name="font_styles_item_subtitle_font_family">Inter, Inter-Regular</string>
+  
+</resources>

@@ -1,13 +1,12 @@
-@import './_variables.scss';
+@import '_variables.scss';
 
 h1 {
-  font-size: $font-text-display-size + px;
-  color: $color-careem-black-100;
+  font-size: $core-fonts-header-xlarge-font-size+ px;
 }
 
 
 body {
-  font-family: $font-text-display-family;
+  font-family: $core-fonts-header-xlarge-font-family;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

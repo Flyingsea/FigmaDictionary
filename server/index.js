@@ -4,36 +4,114 @@ const cors = require('cors')
 const fetch = require('node-fetch');
 const fs = require('fs');
 const path = require('path');
+var crypto = require('crypto');
 
-const {
-  get,
-  post
-} = server.router;
+const {get,post} = server.router;
+const app = express();
 
 // Handle requests to the url "/" ( http://localhost:3000/ )
 
 
-const app = express();
+// Path where we store the download sessions
+const DL_SESSION_FOLDER = '/var/download_sessions';
+
+/* Creates a download session */
+function createDownload(filePath, callback) {
+  // Check the existence of DL_SESSION_FOLDER
+  if (!fs.existsSync(DL_SESSION_FOLDER)) return callback(new Error('Session directory does not exist'));
+
+  // Check the existence of the file
+  if (!fs.existsSync(filePath)) return callback(new Error('File doest not exist'));
+
+  // Generate the download sid (session id)
+  var downloadSid = crypto.createHash('md5').update(Math.random().toString()).digest('hex');
+
+  // Generate the download session filename
+  var dlSessionFileName = path.join(DL_SESSION_FOLDER, downloadSid + '.download');
+
+  // Write the link of the file to the download session file
+  fs.writeFile(dlSessionFileName, filePath, function(err) {
+    if (err) return callback(err);
+
+    // If succeeded, return the new download sid
+    callback(null, downloadSid);
+  });
+}
+
+/* Gets the download file path related to a download sid */
+function getDownloadFilePath(downloadSid, callback) {
+  // Get the download session file name
+  var dlSessionFileName = path.join(DL_SESSION_FOLDER, downloadSid + '.download');
+
+  // Check if the download session exists
+  if (!fs.existsSync(dlSessionFileName)) return callback(new Error('Download does not exist'));
+
+  // Get the file path
+  fs.readFile(dlSessionFileName, function(err, data) {
+    if (err) return callback(err);
+
+    // Return the file path
+    callback(null, data);
+  });
+}
+
+/* Deletes a download session */
+function deleteDownload(downloadSid, callback) {
+  // Get the download session file name
+  var dlSessionFileName = path.join(DL_SESSION_FOLDER, downloadSid + '.download');
+
+  // Check if the download session exists
+  if (!fs.existsSync(dlSessionFileName)) return callback(new Error('Download does not exist'));
+
+  // Delete the download session
+  fs.unlink(dlSessionFileName, function(err) {
+    if (err) return callback(err);
+
+    // Return success (no error)
+    callback();
+  });
+}
+
 app.get('/api/build', cors(), (req, res) => {
-  const name = req.query.name || 'World';
-  res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.stringify({
-    greeting: `Hello ${name}!`
-  }));
   getStylesArtboard(
     "29441-121e495c-c18b-48b8-8d82-1fb9b285032d",
     "jVyKdFBIcpDrgcf687DjH5"
   );
+  var downloadSid = req.query.sid;
 
-  console.log("GET done!");
+  // Get the download file path
+  getDownloadFilePath(downloadSid, function(err, path) {
+  if (err) return res.end('Error');
 
+  // Read and send the file here...
+
+  // Finally, delete the download session to invalidate the link
+  deleteDownload(downloadSid, function(err) {
+    // ...
+  });
+});
 });
 
 
-app.listen(3001, () =>
-  console.log('Express server is running on localhost:3001')
+app.listen(3001, () => {
+  console.log('Express server is running on localhost:3001');
+  getStylesArtboard(
+    "29441-121e495c-c18b-48b8-8d82-1fb9b285032d",
+    "jVyKdFBIcpDrgcf687DjH5"
+  );}
 );
 
+
+function createStyles(){
+  const styleDictionary = require('style-dictionary').extend('config.js');
+  styleDictionary.buildAllPlatforms();
+}
+
+function cleanStyles(){
+  const styleDictionary = require('style-dictionary').extend('config.js');
+  styleDictionary.cleanAllPlatforms();
+  delete styleDictionary;
+}
 
 
 ////////////////////////////////////////////////
@@ -46,6 +124,7 @@ function getColors(stylesArtboard) {
     return item.name === "Colors";
   })[0].children;
 
+
   // get colors from each children
   colorsAtrboard.map(item => {
     if (item.name.startsWith("@")) {
@@ -53,7 +132,6 @@ function getColors(stylesArtboard) {
       function rbaObj(obj) {
         return item.fills[0].color[obj] * 255;
       }
-
       const colorObj = {
         [item.name.substring(1)]: {
           value: `rgba(${rbaObj("r")}, ${rbaObj("g")}, ${rbaObj("b")}, ${
@@ -72,7 +150,9 @@ function getColors(stylesArtboard) {
 
 function getSpacing(stylesArtboard) {
   // empty object
-  const spacing = {};
+  const spacing = {
+        spacing: {}
+  };
   // get the artboard
   const spacingAtrboard = stylesArtboard.filter(item => {
     return item.name === "Spacing";
@@ -83,11 +163,10 @@ function getSpacing(stylesArtboard) {
       const spacerObj = {
         [item.name.substring(1)]: {
           value: `${item.absoluteBoundingBox.height}px`,
-          type: "spacing"
         }
       };
 
-      Object.assign(spacing, spacerObj);
+      Object.assign(spacing.spacing, spacerObj);
     }
   });
 
@@ -107,8 +186,6 @@ function getDurations(stylesArtboard) {
       const durationsObj = {
         [item.name.substring(1)]: {
           value: item.characters,
-
-          type: "time"
         }
       };
 
@@ -121,7 +198,9 @@ function getDurations(stylesArtboard) {
 
 function getRoundness(stylesArtboard) {
   // empty object
-  const roundness = {};
+  const roundness = {
+    roundness: {}
+  };
   // get the artboard
   const roundnessAtrboard = stylesArtboard.filter(item => {
     return item.name === "Roundness";
@@ -132,15 +211,12 @@ function getRoundness(stylesArtboard) {
       const roundnessObj = {
         [item.name.substring(1)]: {
           value: item.cornerRadius || 0,
-
-          type: "roundness"
         }
       };
 
-      Object.assign(roundness, roundnessObj);
+      Object.assign(roundness.roundness, roundnessObj);
     }
   });
-
   return roundness;
 }
 
@@ -157,9 +233,7 @@ function getShadows(stylesArtboard) {
       const shadowsObj = {
         [item.name.substring(1)]: {
          color: {
-            value: `rgba(${item.effects[0].color.r*255}, ${item.effects[0].color.g*255}, ${item.effects[0].color.b*255}, ${
-                        item.effects[0].color.a
-                    })`,
+            value: `rgba(${item.effects[0].color.r*255}, ${item.effects[0].color.g*255}, ${item.effects[0].color.b*255}, ${item.effects[0].color.a})`,
             type: "shadow"
           },
           offset: {
@@ -185,39 +259,47 @@ function getShadows(stylesArtboard) {
   return shadows;
 }
 
-function getTypography(stylesArtboard) {
+
+
+
+function getScale(stylesArtboard) {
   // empty object
   const typography = {};
   // get the artboard
-  const typographyAtrboard = stylesArtboard.filter(item => {
+  var typographyAtrboard = stylesArtboard.filter(item => {
     return item.name === "Typography";
   })[0].children;
   typographyAtrboard.map((fontItem, i) => {
     if (fontItem.name.startsWith("@")) {
       let fontObj = {
         [fontItem.name.substring(1)]: {
-          family: {
+
+          //setting font family
+          "font-family": {
             value: `${fontItem.style.fontFamily}, ${
                         fontItem.style.fontPostScriptName
                     }`,
-            type: "typography"
           },
-          size: {
+
+          //setting font size
+          "font-size": {
             value: fontItem.style.fontSize,
-            type: "typography"
           },
-          weight: {
+
+          //setting font weight
+          "font-weight": {
             value: fontItem.style.fontWeight,
-            type: "typography"
           },
-          lineheight: {
+
+          //setting lineheight
+          "font-lineheight": {
             value: fontItem.style.lineHeightPx,
-            type: "typography"
           },
-          spacing: {
+
+          //setting letterspacing
+          "font-letterspacing": {
             value: fontItem.style.letterSpacing !== 0 ?
-              `${fontItem.style.letterSpacing}px` : "normal",
-            type: "typography"
+              `${fontItem.style.letterSpacing}` : 0,
           }
         }
       };
@@ -230,234 +312,81 @@ function getTypography(stylesArtboard) {
   return typography;
 }
 
-function createStyles(){
 
-  var styleDictionary = require('style-dictionary').extend({
-    source: ["properties/*.json"],
-      platforms: {
-        scss: {
-          transformGroup: "scss",
-          buildPath: "build/scss/",
-          files: [{
-            destination: "_variables.scss",
-            format: "scss/variables"
-          },{
-            destination: "../../../client/src/_variables.scss",
-            format: "scss/variables"
-          },]
-        },
-        android: {
-          transformGroup: "android",
-          buildPath: "build/android/",
-          files: [{
-            destination: "font_dimens.xml",
-            format: "android/fontDimens"
-          }, {
-            destination: "colors.xml",
-            format: "android/colors"
-          }]
-        },
-        ios: {
-          transformGroup: "ios",
-          buildPath: "build/ios/",
-          files: [{
-            destination: "StyleDictionaryColor.h",
-            format: "ios/colors.h",
-            className: "StyleDictionaryColor",
-            type: "StyleDictionaryColorName",
-            filter: {
-              attributes: {
-                category: "color"
-              }
-            }
-          }, {
-            destination: "StyleDictionaryColor.m",
-            format: "ios/colors.m",
-            className: "StyleDictionaryColor",
-            type: "StyleDictionaryColorName",
-            filter: {
-              attributes: {
-                category: "color"
-              }
-            }
-          }, {
-            destination: "StyleDictionarySize.h",
-            format: "ios/static.h",
-            className: "StyleDictionarySize",
-            type: "float",
-            filter: {
-              "attributes": {
-                "category": "size"
-              }
-            }
-          }, {
-            destination: "StyleDictionarySize.m",
-            format: "ios/static.m",
-            className: "StyleDictionarySize",
-            type: "float",
-            filter: {
-              attributes: {
-                category: "size"
-              }
-            }
-          }]
-        },
-        'ios-swift': {
-          transformGroup: "ios-swift",
-          buildPath: "build/ios-swift/",
-          files: [{
-            destination: "StyleDictionary.swift",
-            format: "ios-swift/class.swift",
-            className: "StyleDictionary",
-            filter: {}
-          }]
-        },
-        'ios-swift-separate-enums': {
-          transformGroup: "ios-swift-separate",
-          buildPath: "build/ios-swift/",
-          files: [{
-            destination: "StyleDictionaryColor.swift",
-            format: "ios-swift/enum.swift",
-            className: "StyleDictionaryColor",
-            filter: {
-              attributes: {
-                category: "color"
-              }
-            }
-          }, {
-            destination: "StyleDictionarySize.swift",
-            format: "ios-swift/enum.swift",
-            className: "StyleDictionarySize",
-            type: "float",
-            filter: {
-              attributes: {
-                category: "size"
-              }
-            }
-          }]
+function getFontStyles(stylesArtboard) {
+  // empty object
+  const typography = {};
+  // get the artboard
+  var typographyAtrboard = stylesArtboard.filter(item => {
+    return item.name === "Styles Day";
+  })[0].children;
+  typographyAtrboard.map((fontItem, i) => {
+    if (fontItem.name.startsWith("@")) {
+
+      console.log(fontItem.fills[0]);
+      let fontObj = {
+        [fontItem.name.substring(1)]: {
+
+          //setting font family
+          "font-family": {
+            value: `${fontItem.style.fontFamily}, ${
+                        fontItem.style.fontPostScriptName
+                    }`,
+          },
+
+          //setting font size
+          "font-size": {
+            value: fontItem.style.fontSize,
+          },
+
+          //setting font weight
+          "font-weight": {
+            value: fontItem.style.fontWeight,
+          },
+
+          //setting lineheight
+          "font-lineheight": {
+            value: fontItem.style.lineHeightPx,
+          },
+
+          //setting letterspacing
+          "font-letterspacing": {
+            value: fontItem.style.letterSpacing !== 0 ?
+              `${fontItem.style.letterSpacing}` : 0,
+          },
+          //setting color
+          "font-color": {
+          value: `rgba(${fontItem.fills[0].color.r*255}, ${fontItem.fills[0].color.g*255}, ${fontItem.fills[0].color.b*255}, ${fontItem.fills[0].color.a})`,
+          }
         }
-      }
+      };
+
+      Object.assign(typography, fontObj);
 
 
+    }
   });
 
-  styleDictionary.buildAllPlatforms();
-}
+  typographyAtrboard = stylesArtboard.filter(item => {
+    return item.name === "Styles Night";
+  })[0].children[0].children;
+  console.log(typographyAtrboard);
+  typographyAtrboard.map((fontItem, i) => {
+    if (fontItem.name.startsWith("@")) {
 
-function cleanStyles(){
+      let fontObj = {
+        "font-color-night": {
+        value: `rgba(${fontItem.fills[0].color.r*255}, ${fontItem.fills[0].color.g*255}, ${fontItem.fills[0].color.b*255}, ${fontItem.fills[0].color.a})`,
 
-
-  var styleDictionary = require('style-dictionary').extend({
-    source: ["properties/*.json"],
-      platforms: {
-        scss: {
-          transformGroup: "scss",
-          buildPath: "build/scss/",
-          files: [{
-            destination: "_variables.scss",
-            format: "scss/variables"
-          },{
-            destination: "../../../client/src/_variables.scss",
-            format: "scss/variables"
-          },]
-        },
-        android: {
-          transformGroup: "android",
-          buildPath: "build/android/",
-          files: [{
-            destination: "font_dimens.xml",
-            format: "android/fontDimens"
-          }, {
-            destination: "colors.xml",
-            format: "android/colors"
-          }]
-        },
-        ios: {
-          transformGroup: "ios",
-          buildPath: "build/ios/",
-          files: [{
-            destination: "StyleDictionaryColor.h",
-            format: "ios/colors.h",
-            className: "StyleDictionaryColor",
-            type: "StyleDictionaryColorName",
-            filter: {
-              attributes: {
-                category: "color"
-              }
-            }
-          }, {
-            destination: "StyleDictionaryColor.m",
-            format: "ios/colors.m",
-            className: "StyleDictionaryColor",
-            type: "StyleDictionaryColorName",
-            filter: {
-              attributes: {
-                category: "color"
-              }
-            }
-          }, {
-            destination: "StyleDictionarySize.h",
-            format: "ios/static.h",
-            className: "StyleDictionarySize",
-            type: "float",
-            filter: {
-              "attributes": {
-                "category": "size"
-              }
-            }
-          }, {
-            destination: "StyleDictionarySize.m",
-            format: "ios/static.m",
-            className: "StyleDictionarySize",
-            type: "float",
-            filter: {
-              attributes: {
-                category: "size"
-              }
-            }
-          }]
-        },
-        'ios-swift': {
-          transformGroup: "ios-swift",
-          buildPath: "build/ios-swift/",
-          files: [{
-            destination: "StyleDictionary.swift",
-            format: "ios-swift/class.swift",
-            className: "StyleDictionary",
-            filter: {}
-          }]
-        },
-        'ios-swift-separate-enums': {
-          transformGroup: "ios-swift-separate",
-          buildPath: "build/ios-swift/",
-          files: [{
-            destination: "StyleDictionaryColor.swift",
-            format: "ios-swift/enum.swift",
-            className: "StyleDictionaryColor",
-            filter: {
-              attributes: {
-                category: "color"
-              }
-            }
-          }, {
-            destination: "StyleDictionarySize.swift",
-            format: "ios-swift/enum.swift",
-            className: "StyleDictionarySize",
-            type: "float",
-            filter: {
-              attributes: {
-                category: "size"
-              }
-            }
-          }]
         }
-      }
+      };
+
+      Object.assign(typography[fontItem.name.substring(1)], fontObj);
 
 
+    }
   });
-
-  styleDictionary.cleanAllPlatforms();
-  delete styleDictionary;
+  return typography;
 }
 
 // main function
@@ -475,21 +404,20 @@ async function getStylesArtboard(figmaApiKey, figmaId) {
   })[0].children;
 
   var baseTokensJSON = {
-    font: {},
-    dimens: {},
+    CoreFonts: {},
     color: {},
-    roundness: {},
+    FontStyles: {},
     time: {},
-    shadow: {}
-
+    size: {},
   };
 
   Object.assign(baseTokensJSON.time, getDurations(stylesArtboard));
-  Object.assign(baseTokensJSON.roundness, getRoundness(stylesArtboard));
-  Object.assign(baseTokensJSON.shadow, getShadows(stylesArtboard));
-  Object.assign(baseTokensJSON.dimens, getSpacing(stylesArtboard));
+  Object.assign(baseTokensJSON.size, getRoundness(stylesArtboard));
+  Object.assign(baseTokensJSON.size, getSpacing(stylesArtboard));
+  Object.assign(baseTokensJSON.CoreFonts, getScale(stylesArtboard));
   Object.assign(baseTokensJSON.color, getColors(stylesArtboard));
-  Object.assign(baseTokensJSON.font, getTypography(stylesArtboard));
+  Object.assign(baseTokensJSON.FontStyles, getFontStyles(stylesArtboard));
+
 
   const directory = 'properties/';
 
@@ -513,11 +441,9 @@ async function getStylesArtboard(figmaApiKey, figmaId) {
       }
   });
   await cleanStyles();
-
   await console.log("cleared");
   await createStyles();
-
-  await console.log("getStylesArtboard fn done");
+  await console.log("✅done"+Date.now());
 
 
 }

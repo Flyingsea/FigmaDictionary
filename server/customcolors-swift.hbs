@@ -1,0 +1,15 @@
+
+//
+// StyleDictionaryColor.swift
+//
+// Do not edit directly
+//
+
+import UIKit
+public enum {{options.files.[0].className}} {
+{{#each allProperties}}
+
+  {{#if comment}}///{{comment}}{{/if}}
+  public static let {{name}} = {{value}}
+{{/each}}
+}
