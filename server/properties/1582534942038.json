@@ -511,6 +511,274 @@
         "Gold120": {
             "value": "rgba(155.55000364780426, 95.97766667604446, 18.202649652957916, 1)",
             "type": "color"
+        },
+        "color-secondary-graph-data2": {
+            "value": "rgba(131.00000739097595, 174.00000482797623, 243.00000071525574, 1)",
+            "type": "color"
+        },
+        "color-secondary-graph-data3": {
+            "value": "rgba(225.00000178813934, 236.00000113248825, 252.00000017881393, 1)",
+            "type": "color"
+        },
+        "color-text-primary": {
+            "value": "rgba(45.0000125169754, 45.59936575591564, 46.00001245737076, 1)",
+            "type": "color"
+        },
+        "color-border-on-dark-background": {
+            "value": "rgba(227.00000166893005, 232.00000137090683, 236.00000113248825, 1)",
+            "type": "color"
+        },
+        "color-background-selected": {
+            "value": "rgba(242.00000077486038, 250.00000029802322, 243.00000071525574, 1)",
+            "type": "color"
+        },
+        "color-border-selected": {
+            "value": "rgba(55.00000812113285, 180.00000447034836, 78.00001055002213, 1)",
+            "type": "color"
+        },
+        "color-icon-default": {
+            "value": "rgba(45.0000125169754, 45.59936575591564, 46.00001245737076, 1)",
+            "type": "color"
+        },
+        "color-icon-dark": {
+            "value": "rgba(134.00000721216202, 151.00000619888306, 164.00000542402267, 1)",
+            "type": "color"
+        },
+        "color-icon-default-selected ": {
+            "value": "rgba(55.00000812113285, 180.00000447034836, 78.00001055002213, 1)",
+            "type": "color"
+        },
+        "color-icon-dark-selected ": {
+            "value": "rgba(55.00000812113285, 180.00000447034836, 78.00001055002213, 1)",
+            "type": "color"
+        },
+        "color-icon-light-selected ": {
+            "value": "rgba(55.00000812113285, 180.00000447034836, 78.00001055002213, 1)",
+            "type": "color"
+        },
+        "color-icon-light": {
+            "value": "rgba(194.99998837709427, 203.99998784065247, 210.00000268220901, 1)",
+            "type": "color"
+        },
+        "color-background-negative": {
+            "value": "rgba(226.0000017285347, 4.000000236555934, 43.00000123679638, 1)",
+            "type": "color"
+        },
+        "color-background-careemGreen-transparent": {
+            "value": "rgba(55.00000812113285, 180.00000447034836, 78.00001055002213, 1)",
+            "type": "color"
+        },
+        "color-background-careemBlack-transparent": {
+            "value": "rgba(134.00000721216202, 151.00000619888306, 164.00000542402267, 1)",
+            "type": "color"
+        },
+        "color-background-purple-transparent": {
+            "value": "rgba(152.0000061392784, 29.000000171363354, 151.00000619888306, 1)",
+            "type": "color"
+        },
+        "color-background-orange-transparent": {
+            "value": "rgba(248.0000004172325, 160.00000566244125, 49.00000087916851, 1)",
+            "type": "color"
+        },
+        "color-background-blue-transparent": {
+            "value": "rgba(7.000000057742, 93.00000205636024, 231.00000143051147, 1)",
+            "type": "color"
+        },
+        "color-background-lightSlateBlue-transparent": {
+            "value": "rgba(132.0000073313713, 89.00000229477882, 255, 1)",
+            "type": "color"
+        },
+        "color-background-turquoise-transparent": {
+            "value": "rgba(0, 199.0000033378601, 177.0000046491623, 1)",
+            "type": "color"
+        },
+        "color-background-gold-transparent": {
+            "value": "rgba(214.00000244379044, 161.0000056028366, 55.00000052154064, 1)",
+            "type": "color"
+        },
+        "color-background-azure-transparent": {
+            "value": "rgba(0, 169.00000512599945, 224.000001847744, 1)",
+            "type": "color"
+        },
+        "color-background-negative-light": {
+            "value": "rgba(255, 231.94043576717377, 236.21072262525558, 1)",
+            "type": "color"
+        },
+        "color-background-warning": {
+            "value": "rgba(248.0000004172325, 160.00000566244125, 49.00000087916851, 1)",
+            "type": "color"
+        },
+        "color-background-warning-light": {
+            "value": "rgba(254.00000005960464, 244.0000006556511, 230.00000149011612, 1)",
+            "type": "color"
+        },
+        "color-background-positive": {
+            "value": "rgba(55.00000812113285, 180.00000447034836, 78.00001055002213, 1)",
+            "type": "color"
+        },
+        "color-background-positive-light": {
+            "value": "rgba(231.00000143051147, 246.0000005364418, 234.00000125169754, 1)",
+            "type": "color"
+        },
+        "color-background-overlay-light": {
+            "value": "rgba(45.0000125169754, 45.59936575591564, 46.00001245737076, 1)",
+            "type": "color"
+        },
+        "color-background-overlay-dark": {
+            "value": "rgba(45.0000125169754, 45.59936575591564, 46.00001245737076, 1)",
+            "type": "color"
+        },
+        "color-background-light": {
+            "value": "rgba(249.00000035762787, 250.00000029802322, 251.00000023841858, 1)",
+            "type": "color"
+        },
+        "color-background-dark": {
+            "value": "rgba(241.94399178028107, 245.208001434803, 247.65599727630615, 1)",
+            "type": "color"
+        },
+        "color-background-default": {
+            "value": "rgba(255, 255, 255, 1)",
+            "type": "color"
+        },
+        "color-background-page-default": {
+            "value": "rgba(255, 255, 255, 1)",
+            "type": "color"
+        },
+        "color-background-page-light": {
+            "value": "rgba(241.94399178028107, 245.208001434803, 247.65599727630615, 1)",
+            "type": "color"
+        },
+        "color-primary-graph-data1": {
+            "value": "rgba(55.00000812113285, 180.00000447034836, 78.00001055002213, 1)",
+            "type": "color"
+        },
+        "color-secondary-graph-data1": {
+            "value": "rgba(7.000000057742, 93.00000205636024, 231.00000143051147, 1)",
+            "type": "color"
+        },
+        "color-primary-graph-data2": {
+            "value": "rgba(155.00000596046448, 218.00000220537186, 167.00000524520874, 1)",
+            "type": "color"
+        },
+        "color-primary-graph-data3": {
+            "value": "rgba(231.00000143051147, 246.0000005364418, 234.00000125169754, 1)",
+            "type": "color"
+        },
+        "color-border-on-light-background": {
+            "value": "rgba(241.94399178028107, 245.208001434803, 247.65599727630615, 1)",
+            "type": "color"
+        },
+        "color-border-error": {
+            "value": "rgba(214.00000244379044, 2.000000118277967, 26.000000350177288, 1)",
+            "type": "color"
+        },
+        "color-border-success": {
+            "value": "rgba(55.00000812113285, 180.00000447034836, 78.00001055002213, 1)",
+            "type": "color"
+        },
+        "color-border-warning": {
+            "value": "rgba(248.0000004172325, 160.00000566244125, 49.00000087916851, 1)",
+            "type": "color"
+        },
+        "page-header-color-border": {
+            "value": "rgba(241.94399178028107, 245.208001434803, 247.65599727630615, 1)",
+            "type": "color"
+        },
+        "color-border-separator-on-light-background": {
+            "value": "rgba(241.94399178028107, 245.208001434803, 247.65599727630615, 1)",
+            "type": "color"
+        },
+        "color-border-separator-on-dark-background": {
+            "value": "rgba(227.00000166893005, 232.00000137090683, 236.00000113248825, 1)",
+            "type": "color"
+        },
+        "color-text-secondary ": {
+            "value": "rgba(96.00000187754631, 108.00000116229057, 116.00000068545341, 1)",
+            "type": "color"
+        },
+        "utility-color-error": {
+            "value": "rgba(226.0000017285347, 4.000000236555934, 43.00000123679638, 1)",
+            "type": "color"
+        },
+        "color-text-tertiary": {
+            "value": "rgba(134.00000721216202, 151.00000619888306, 164.00000542402267, 1)",
+            "type": "color"
+        },
+        "utility-color-success": {
+            "value": "rgba(55.00000812113285, 180.00000447034836, 78.00001055002213, 1)",
+            "type": "color"
+        },
+        "color-text-link-primary": {
+            "value": "rgba(55.00000812113285, 180.00000447034836, 78.00001055002213, 1)",
+            "type": "color"
+        },
+        "utility-color-destructive": {
+            "value": "rgba(226.0000017285347, 4.000000236555934, 43.00000123679638, 1)",
+            "type": "color"
+        },
+        "utility-color-constructive": {
+            "value": "rgba(55.00000812113285, 180.00000447034836, 78.00001055002213, 1)",
+            "type": "color"
+        },
+        "color-text-link-secondary": {
+            "value": "rgba(45.0000125169754, 45.59936575591564, 46.00001245737076, 1)",
+            "type": "color"
+        },
+        "utility-color-primary": {
+            "value": "rgba(55.00000812113285, 180.00000447034836, 78.00001055002213, 1)",
+            "type": "color"
+        },
+        "color-text-label-on-light-background": {
+            "value": "rgba(134.00000721216202, 151.00000619888306, 164.00000542402267, 1)",
+            "type": "color"
+        },
+        "color-text-label-on-dark-background": {
+            "value": "rgba(96.00000187754631, 108.00000116229057, 116.00000068545341, 1)",
+            "type": "color"
+        },
+        "utility-color-accent-a": {
+            "value": "rgba(0, 199.0000033378601, 177.0000046491623, 1)",
+            "type": "color"
+        },
+        "utility-color-accent-b": {
+            "value": "rgba(0, 169.00000512599945, 224.000001847744, 1)",
+            "type": "color"
+        },
+        "color-brand-loyalty": {
+            "value": "rgba(214.00000244379044, 161.0000056028366, 55.00000052154064, 1)",
+            "type": "color"
+        },
+        "color-brand-safety": {
+            "value": "rgba(7.000000057742, 93.00000205636024, 231.00000143051147, 1)",
+            "type": "color"
+        },
+        "color-text-nigative": {
+            "value": "rgba(214.00000244379044, 2.000000118277967, 26.000000350177288, 1)",
+            "type": "color"
+        },
+        "color-text-warning": {
+            "value": "rgba(245.00000059604645, 132.0000073313713, 31.000000052154064, 1)",
+            "type": "color"
+        },
+        "color-text-postive": {
+            "value": "rgba(35.00000171363354, 156.00000590085983, 53.00000064074993, 1)",
+            "type": "color"
+        },
+        "color-text-placeholder": {
+            "value": "rgba(134.00000721216202, 151.00000619888306, 164.00000542402267, 1)",
+            "type": "color"
+        },
+        "utility-color-on-tap-state-on-light-background": {
+            "value": "rgba(45.0000125169754, 45.59936575591564, 46.00001245737076, 1)",
+            "type": "color"
+        },
+        "utility-color-on-tap-state-on-dark-background": {
+            "value": "rgba(45.0000125169754, 45.59936575591564, 46.00001245737076, 1)",
+            "type": "color"
+        },
+        "utility-color-disabled-state": {
+            "value": "rgba(45.0000125169754, 45.59936575591564, 46.00001245737076, 1)",
+            "type": "color"
         }
     },
     "FontStyles": {
@@ -1209,7 +1477,7 @@
                 "value": "Inter, Inter-SemiBold"
             },
             "font-size": {
-                "value": 16
+                "value": 14
             },
             "font-weight": {
                 "value": 400
@@ -1224,7 +1492,7 @@
                 "value": "rgba(45.0000125169754, 45.59936575591564, 46.00001245737076, 1)"
             },
             "font-color-night": {
-                "value": "rgba(249.00000035762787, 250.00000029802322, 251.00000023841858, 1)"
+                "value": "rgba(45.0000125169754, 45.59936575591564, 46.00001245737076, 1)"
             }
         },
         "Item Subtitle": {

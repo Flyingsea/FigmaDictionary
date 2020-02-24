@@ -263,6 +263,207 @@ public enum CareemColors {
   ///R:156, G:96, B:18, Alpha:1
   public static let colorGold120 = UIColor(red: 0.612, green: 0.376, blue: 0.071, alpha:1)
 
+  ///R:131, G:174, B:243, Alpha:1
+  public static let colorColorSecondaryGraphData2 = UIColor(red: 0.514, green: 0.682, blue: 0.953, alpha:1)
+
+  ///R:225, G:236, B:252, Alpha:1
+  public static let colorColorSecondaryGraphData3 = UIColor(red: 0.882, green: 0.925, blue: 0.988, alpha:1)
+
+  ///R:45, G:46, B:46, Alpha:1
+  public static let colorColorTextPrimary = UIColor(red: 0.176, green: 0.180, blue: 0.180, alpha:1)
+
+  ///R:227, G:232, B:236, Alpha:1
+  public static let colorColorBorderOnDarkBackground = UIColor(red: 0.890, green: 0.910, blue: 0.925, alpha:1)
+
+  ///R:242, G:250, B:243, Alpha:1
+  public static let colorColorBackgroundSelected = UIColor(red: 0.949, green: 0.980, blue: 0.953, alpha:1)
+
+  ///R:55, G:180, B:78, Alpha:1
+  public static let colorColorBorderSelected = UIColor(red: 0.216, green: 0.706, blue: 0.306, alpha:1)
+
+  ///R:45, G:46, B:46, Alpha:1
+  public static let colorColorIconDefault = UIColor(red: 0.176, green: 0.180, blue: 0.180, alpha:1)
+
+  ///R:134, G:151, B:164, Alpha:1
+  public static let colorColorIconDark = UIColor(red: 0.525, green: 0.592, blue: 0.643, alpha:1)
+
+  ///R:55, G:180, B:78, Alpha:1
+  public static let colorColorIconDefaultSelected = UIColor(red: 0.216, green: 0.706, blue: 0.306, alpha:1)
+
+  ///R:55, G:180, B:78, Alpha:1
+  public static let colorColorIconDarkSelected = UIColor(red: 0.216, green: 0.706, blue: 0.306, alpha:1)
+
+  ///R:55, G:180, B:78, Alpha:1
+  public static let colorColorIconLightSelected = UIColor(red: 0.216, green: 0.706, blue: 0.306, alpha:1)
+
+  ///R:195, G:204, B:210, Alpha:1
+  public static let colorColorIconLight = UIColor(red: 0.765, green: 0.800, blue: 0.824, alpha:1)
+
+  ///R:226, G:4, B:43, Alpha:1
+  public static let colorColorBackgroundNegative = UIColor(red: 0.886, green: 0.016, blue: 0.169, alpha:1)
+
+  ///R:55, G:180, B:78, Alpha:1
+  public static let colorColorBackgroundCareemGreenTransparent = UIColor(red: 0.216, green: 0.706, blue: 0.306, alpha:1)
+
+  ///R:134, G:151, B:164, Alpha:1
+  public static let colorColorBackgroundCareemBlackTransparent = UIColor(red: 0.525, green: 0.592, blue: 0.643, alpha:1)
+
+  ///R:152, G:29, B:151, Alpha:1
+  public static let colorColorBackgroundPurpleTransparent = UIColor(red: 0.596, green: 0.114, blue: 0.592, alpha:1)
+
+  ///R:248, G:160, B:49, Alpha:1
+  public static let colorColorBackgroundOrangeTransparent = UIColor(red: 0.973, green: 0.627, blue: 0.192, alpha:1)
+
+  ///R:7, G:93, B:231, Alpha:1
+  public static let colorColorBackgroundBlueTransparent = UIColor(red: 0.027, green: 0.365, blue: 0.906, alpha:1)
+
+  ///R:132, G:89, B:255, Alpha:1
+  public static let colorColorBackgroundLightSlateBlueTransparent = UIColor(red: 0.518, green: 0.349, blue: 1.000, alpha:1)
+
+  ///R:0, G:199, B:177, Alpha:1
+  public static let colorColorBackgroundTurquoiseTransparent = UIColor(red: 0.000, green: 0.780, blue: 0.694, alpha:1)
+
+  ///R:214, G:161, B:55, Alpha:1
+  public static let colorColorBackgroundGoldTransparent = UIColor(red: 0.839, green: 0.631, blue: 0.216, alpha:1)
+
+  ///R:0, G:169, B:224, Alpha:1
+  public static let colorColorBackgroundAzureTransparent = UIColor(red: 0.000, green: 0.663, blue: 0.878, alpha:1)
+
+  ///R:255, G:232, B:236, Alpha:1
+  public static let colorColorBackgroundNegativeLight = UIColor(red: 1.000, green: 0.910, blue: 0.925, alpha:1)
+
+  ///R:248, G:160, B:49, Alpha:1
+  public static let colorColorBackgroundWarning = UIColor(red: 0.973, green: 0.627, blue: 0.192, alpha:1)
+
+  ///R:254, G:244, B:230, Alpha:1
+  public static let colorColorBackgroundWarningLight = UIColor(red: 0.996, green: 0.957, blue: 0.902, alpha:1)
+
+  ///R:55, G:180, B:78, Alpha:1
+  public static let colorColorBackgroundPositive = UIColor(red: 0.216, green: 0.706, blue: 0.306, alpha:1)
+
+  ///R:231, G:246, B:234, Alpha:1
+  public static let colorColorBackgroundPositiveLight = UIColor(red: 0.906, green: 0.965, blue: 0.918, alpha:1)
+
+  ///R:45, G:46, B:46, Alpha:1
+  public static let colorColorBackgroundOverlayLight = UIColor(red: 0.176, green: 0.180, blue: 0.180, alpha:1)
+
+  ///R:45, G:46, B:46, Alpha:1
+  public static let colorColorBackgroundOverlayDark = UIColor(red: 0.176, green: 0.180, blue: 0.180, alpha:1)
+
+  ///R:249, G:250, B:251, Alpha:1
+  public static let colorColorBackgroundLight = UIColor(red: 0.976, green: 0.980, blue: 0.984, alpha:1)
+
+  ///R:242, G:245, B:248, Alpha:1
+  public static let colorColorBackgroundDark = UIColor(red: 0.949, green: 0.961, blue: 0.973, alpha:1)
+
+  ///R:255, G:255, B:255, Alpha:1
+  public static let colorColorBackgroundDefault = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha:1)
+
+  ///R:255, G:255, B:255, Alpha:1
+  public static let colorColorBackgroundPageDefault = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha:1)
+
+  ///R:242, G:245, B:248, Alpha:1
+  public static let colorColorBackgroundPageLight = UIColor(red: 0.949, green: 0.961, blue: 0.973, alpha:1)
+
+  ///R:55, G:180, B:78, Alpha:1
+  public static let colorColorPrimaryGraphData1 = UIColor(red: 0.216, green: 0.706, blue: 0.306, alpha:1)
+
+  ///R:7, G:93, B:231, Alpha:1
+  public static let colorColorSecondaryGraphData1 = UIColor(red: 0.027, green: 0.365, blue: 0.906, alpha:1)
+
+  ///R:155, G:218, B:167, Alpha:1
+  public static let colorColorPrimaryGraphData2 = UIColor(red: 0.608, green: 0.855, blue: 0.655, alpha:1)
+
+  ///R:231, G:246, B:234, Alpha:1
+  public static let colorColorPrimaryGraphData3 = UIColor(red: 0.906, green: 0.965, blue: 0.918, alpha:1)
+
+  ///R:242, G:245, B:248, Alpha:1
+  public static let colorColorBorderOnLightBackground = UIColor(red: 0.949, green: 0.961, blue: 0.973, alpha:1)
+
+  ///R:214, G:2, B:26, Alpha:1
+  public static let colorColorBorderError = UIColor(red: 0.839, green: 0.008, blue: 0.102, alpha:1)
+
+  ///R:55, G:180, B:78, Alpha:1
+  public static let colorColorBorderSuccess = UIColor(red: 0.216, green: 0.706, blue: 0.306, alpha:1)
+
+  ///R:248, G:160, B:49, Alpha:1
+  public static let colorColorBorderWarning = UIColor(red: 0.973, green: 0.627, blue: 0.192, alpha:1)
+
+  ///R:242, G:245, B:248, Alpha:1
+  public static let colorPageHeaderColorBorder = UIColor(red: 0.949, green: 0.961, blue: 0.973, alpha:1)
+
+  ///R:242, G:245, B:248, Alpha:1
+  public static let colorColorBorderSeparatorOnLightBackground = UIColor(red: 0.949, green: 0.961, blue: 0.973, alpha:1)
+
+  ///R:227, G:232, B:236, Alpha:1
+  public static let colorColorBorderSeparatorOnDarkBackground = UIColor(red: 0.890, green: 0.910, blue: 0.925, alpha:1)
+
+  ///R:96, G:108, B:116, Alpha:1
+  public static let colorColorTextSecondary = UIColor(red: 0.376, green: 0.424, blue: 0.455, alpha:1)
+
+  ///R:226, G:4, B:43, Alpha:1
+  public static let colorUtilityColorError = UIColor(red: 0.886, green: 0.016, blue: 0.169, alpha:1)
+
+  ///R:134, G:151, B:164, Alpha:1
+  public static let colorColorTextTertiary = UIColor(red: 0.525, green: 0.592, blue: 0.643, alpha:1)
+
+  ///R:55, G:180, B:78, Alpha:1
+  public static let colorUtilityColorSuccess = UIColor(red: 0.216, green: 0.706, blue: 0.306, alpha:1)
+
+  ///R:55, G:180, B:78, Alpha:1
+  public static let colorColorTextLinkPrimary = UIColor(red: 0.216, green: 0.706, blue: 0.306, alpha:1)
+
+  ///R:226, G:4, B:43, Alpha:1
+  public static let colorUtilityColorDestructive = UIColor(red: 0.886, green: 0.016, blue: 0.169, alpha:1)
+
+  ///R:55, G:180, B:78, Alpha:1
+  public static let colorUtilityColorConstructive = UIColor(red: 0.216, green: 0.706, blue: 0.306, alpha:1)
+
+  ///R:45, G:46, B:46, Alpha:1
+  public static let colorColorTextLinkSecondary = UIColor(red: 0.176, green: 0.180, blue: 0.180, alpha:1)
+
+  ///R:55, G:180, B:78, Alpha:1
+  public static let colorUtilityColorPrimary = UIColor(red: 0.216, green: 0.706, blue: 0.306, alpha:1)
+
+  ///R:134, G:151, B:164, Alpha:1
+  public static let colorColorTextLabelOnLightBackground = UIColor(red: 0.525, green: 0.592, blue: 0.643, alpha:1)
+
+  ///R:96, G:108, B:116, Alpha:1
+  public static let colorColorTextLabelOnDarkBackground = UIColor(red: 0.376, green: 0.424, blue: 0.455, alpha:1)
+
+  ///R:0, G:199, B:177, Alpha:1
+  public static let colorUtilityColorAccentA = UIColor(red: 0.000, green: 0.780, blue: 0.694, alpha:1)
+
+  ///R:0, G:169, B:224, Alpha:1
+  public static let colorUtilityColorAccentB = UIColor(red: 0.000, green: 0.663, blue: 0.878, alpha:1)
+
+  ///R:214, G:161, B:55, Alpha:1
+  public static let colorColorBrandLoyalty = UIColor(red: 0.839, green: 0.631, blue: 0.216, alpha:1)
+
+  ///R:7, G:93, B:231, Alpha:1
+  public static let colorColorBrandSafety = UIColor(red: 0.027, green: 0.365, blue: 0.906, alpha:1)
+
+  ///R:214, G:2, B:26, Alpha:1
+  public static let colorColorTextNigative = UIColor(red: 0.839, green: 0.008, blue: 0.102, alpha:1)
+
+  ///R:245, G:132, B:31, Alpha:1
+  public static let colorColorTextWarning = UIColor(red: 0.961, green: 0.518, blue: 0.122, alpha:1)
+
+  ///R:35, G:156, B:53, Alpha:1
+  public static let colorColorTextPostive = UIColor(red: 0.137, green: 0.612, blue: 0.208, alpha:1)
+
+  ///R:134, G:151, B:164, Alpha:1
+  public static let colorColorTextPlaceholder = UIColor(red: 0.525, green: 0.592, blue: 0.643, alpha:1)
+
+  ///R:45, G:46, B:46, Alpha:1
+  public static let colorUtilityColorOnTapStateOnLightBackground = UIColor(red: 0.176, green: 0.180, blue: 0.180, alpha:1)
+
+  ///R:45, G:46, B:46, Alpha:1
+  public static let colorUtilityColorOnTapStateOnDarkBackground = UIColor(red: 0.176, green: 0.180, blue: 0.180, alpha:1)
+
+  ///R:45, G:46, B:46, Alpha:1
+  public static let colorUtilityColorDisabledState = UIColor(red: 0.176, green: 0.180, blue: 0.180, alpha:1)
+
   ///R:96, G:108, B:116, Alpha:1
   public static let fontStylesLinkNormalGreyFontColor = UIColor(red: 0.376, green: 0.424, blue: 0.455, alpha:1)
 
@@ -446,8 +647,8 @@ public enum CareemColors {
   ///R:45, G:46, B:46, Alpha:1
   public static let fontStylesItemTitleFontColor = UIColor(red: 0.176, green: 0.180, blue: 0.180, alpha:1)
 
-  ///R:249, G:250, B:251, Alpha:1
-  public static let fontStylesItemTitleFontColorNight = UIColor(red: 0.976, green: 0.980, blue: 0.984, alpha:1)
+  ///R:45, G:46, B:46, Alpha:1
+  public static let fontStylesItemTitleFontColorNight = UIColor(red: 0.176, green: 0.180, blue: 0.180, alpha:1)
 
   ///R:96, G:108, B:116, Alpha:1
   public static let fontStylesItemSubtitleFontColor = UIColor(red: 0.376, green: 0.424, blue: 0.455, alpha:1)

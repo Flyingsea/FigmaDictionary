@@ -5,6 +5,7 @@ const fetch = require('node-fetch');
 const fs = require('fs');
 const path = require('path');
 var crypto = require('crypto');
+const icongen = require('icon-gen');
 
 const {get,post} = server.router;
 const app = express();
@@ -122,6 +123,39 @@ function getColors(stylesArtboard) {
   // get "colors" artboard
   const colorsAtrboard = stylesArtboard.filter(item => {
     return item.name === "Colors";
+  })[0].children;
+
+
+  // get colors from each children
+  colorsAtrboard.map(item => {
+    if (item.name.startsWith("@")) {
+
+      function rbaObj(obj) {
+        return item.fills[0].color[obj] * 255;
+      }
+      const colorObj = {
+        [item.name.substring(1)]: {
+          value: `rgba(${rbaObj("r")}, ${rbaObj("g")}, ${rbaObj("b")}, ${
+                      item.fills[0].color.a
+                  })`,
+          type: "color"
+        }
+      };
+
+      Object.assign(colors, colorObj);
+    }
+  });
+
+  return colors;
+}
+
+//Color Aliases JSON
+function getColorAliases(stylesArtboard) {
+  // empty "colors obj" wheree we will store all colors
+  const colors = {};
+  // get "colors" artboard
+  const colorsAtrboard = stylesArtboard.filter(item => {
+    return item.name === "ColorsAliases";
   })[0].children;
 
 
@@ -414,6 +448,7 @@ async function getStylesArtboard(figmaApiKey, figmaId) {
   Object.assign(baseTokensJSON.size, getSpacing(stylesArtboard));
   Object.assign(baseTokensJSON.CoreFonts, getScale(stylesArtboard));
   Object.assign(baseTokensJSON.color, getColors(stylesArtboard));
+  Object.assign(baseTokensJSON.color, getColorAliases(stylesArtboard));
   Object.assign(baseTokensJSON.FontStyles, getFontStyles(stylesArtboard));
 
 

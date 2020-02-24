@@ -1,12 +1,41 @@
 @import '_variables.scss';
 
 h1 {
-  font-size: $core-fonts-header-xlarge-font-size+ px;
+  font-size: $font-styles-screen-title-big-font-size+ px;
 }
 
+.primary {
+  background-color:$color-utility-color-primary;
+  font-size: $font-styles-button-primary-big-font-size+ px;
+  font-family: $font-styles-button-primary-big-font-family;
+  font-weight: $font-styles-button-primary-big-font-weight;
+  color: $font-styles-button-primary-big-font-color;
+  padding-left: $size-spacing-spacing-small-16;
+  padding-right: $size-spacing-spacing-small-16;
+  border-width: 0;
+  border-radius: $size-roundness-roundness-11+ px;
+  height: $size-spacing-spacing-large-48;
+}
 
+.primary:hover {
+  opacity: 0.95;
+}
+
+.primary:active {
+  transform: scale(.97);
+}
+
+.primary:focus {
+  outline: none;
+}
+
+.App
+{
+  padding-top: $size-spacing-spacing-x-large-64/2;
+  padding-left: $size-spacing-spacing-x-large-64;
+}
 body {
-  font-family: $core-fonts-header-xlarge-font-family;
+  font-family: $font-styles-screen-title-big-font-family;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

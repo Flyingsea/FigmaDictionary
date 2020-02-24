@@ -131,7 +131,7 @@ module.exports = {
         destination: "_variables.scss",
         format: "scss/variables"
       }, {
-        destination: "../../../client/src/_variables.scss",
+        destination: "../../client/src/_variables.scss",
         format: "scss/variables"
       }, ]
     },

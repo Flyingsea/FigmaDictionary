@@ -3,7 +3,7 @@
 // CareemFonts.swift
 //
 // Do not edit directly
-// Generated on Sun, 16 Feb 2020 08:47:46 GMT
+// Generated on Mon, 24 Feb 2020 09:02:22 GMT
 //
 
 import UIKit
@@ -95,7 +95,7 @@ public enum CareemFonts {
     public static let fontStylesItemSubtitleFontWeight = CGFloat(400)
     public static let fontStylesItemTitleFontLetterspacing = CGFloat(0)
     public static let fontStylesItemTitleFontLineheight = CGFloat(20)
-    public static let fontStylesItemTitleFontSize = CGFloat(16)
+    public static let fontStylesItemTitleFontSize = CGFloat(14)
     public static let fontStylesItemTitleFontWeight = CGFloat(400)
     public static let fontStylesLinkMicroGreenFontLetterspacing = CGFloat(0)
     public static let fontStylesLinkMicroGreenFontLineheight = CGFloat(16)

@@ -2,7 +2,7 @@
 
 <!--
   Do not edit directly
-  Generated on Sun, 16 Feb 2020 08:47:46 GMT
+  Generated on Mon, 24 Feb 2020 09:02:22 GMT
 -->
 <resources>
   <color name="color_careem_green_60">#ffe7f6ea</color>
@@ -90,6 +90,73 @@
   <color name="color_gold_100">#ffd6a137</color>
   <color name="color_gold_110">#ffc68523</color>
   <color name="color_gold_120">#ff9c6012</color>
+  <color name="color_color_secondary_graph_data_2">#ff83aef3</color>
+  <color name="color_color_secondary_graph_data_3">#ffe1ecfc</color>
+  <color name="color_color_text_primary">#ff2d2e2e</color>
+  <color name="color_color_border_on_dark_background">#ffe3e8ec</color>
+  <color name="color_color_background_selected">#fff2faf3</color>
+  <color name="color_color_border_selected">#ff37b44e</color>
+  <color name="color_color_icon_default">#ff2d2e2e</color>
+  <color name="color_color_icon_dark">#ff8697a4</color>
+  <color name="color_color_icon_default_selected">#ff37b44e</color>
+  <color name="color_color_icon_dark_selected">#ff37b44e</color>
+  <color name="color_color_icon_light_selected">#ff37b44e</color>
+  <color name="color_color_icon_light">#ffc3ccd2</color>
+  <color name="color_color_background_negative">#ffe2042b</color>
+  <color name="color_color_background_careem_green_transparent">#ff37b44e</color>
+  <color name="color_color_background_careem_black_transparent">#ff8697a4</color>
+  <color name="color_color_background_purple_transparent">#ff981d97</color>
+  <color name="color_color_background_orange_transparent">#fff8a031</color>
+  <color name="color_color_background_blue_transparent">#ff075de7</color>
+  <color name="color_color_background_light_slate_blue_transparent">#ff8459ff</color>
+  <color name="color_color_background_turquoise_transparent">#ff00c7b1</color>
+  <color name="color_color_background_gold_transparent">#ffd6a137</color>
+  <color name="color_color_background_azure_transparent">#ff00a9e0</color>
+  <color name="color_color_background_negative_light">#ffffe8ec</color>
+  <color name="color_color_background_warning">#fff8a031</color>
+  <color name="color_color_background_warning_light">#fffef4e6</color>
+  <color name="color_color_background_positive">#ff37b44e</color>
+  <color name="color_color_background_positive_light">#ffe7f6ea</color>
+  <color name="color_color_background_overlay_light">#ff2d2e2e</color>
+  <color name="color_color_background_overlay_dark">#ff2d2e2e</color>
+  <color name="color_color_background_light">#fff9fafb</color>
+  <color name="color_color_background_dark">#fff2f5f8</color>
+  <color name="color_color_background_default">#ffffffff</color>
+  <color name="color_color_background_page_default">#ffffffff</color>
+  <color name="color_color_background_page_light">#fff2f5f8</color>
+  <color name="color_color_primary_graph_data_1">#ff37b44e</color>
+  <color name="color_color_secondary_graph_data_1">#ff075de7</color>
+  <color name="color_color_primary_graph_data_2">#ff9bdaa7</color>
+  <color name="color_color_primary_graph_data_3">#ffe7f6ea</color>
+  <color name="color_color_border_on_light_background">#fff2f5f8</color>
+  <color name="color_color_border_error">#ffd6021a</color>
+  <color name="color_color_border_success">#ff37b44e</color>
+  <color name="color_color_border_warning">#fff8a031</color>
+  <color name="color_page_header_color_border">#fff2f5f8</color>
+  <color name="color_color_border_separator_on_light_background">#fff2f5f8</color>
+  <color name="color_color_border_separator_on_dark_background">#ffe3e8ec</color>
+  <color name="color_color_text_secondary">#ff606c74</color>
+  <color name="color_utility_color_error">#ffe2042b</color>
+  <color name="color_color_text_tertiary">#ff8697a4</color>
+  <color name="color_utility_color_success">#ff37b44e</color>
+  <color name="color_color_text_link_primary">#ff37b44e</color>
+  <color name="color_utility_color_destructive">#ffe2042b</color>
+  <color name="color_utility_color_constructive">#ff37b44e</color>
+  <color name="color_color_text_link_secondary">#ff2d2e2e</color>
+  <color name="color_utility_color_primary">#ff37b44e</color>
+  <color name="color_color_text_label_on_light_background">#ff8697a4</color>
+  <color name="color_color_text_label_on_dark_background">#ff606c74</color>
+  <color name="color_utility_color_accent_a">#ff00c7b1</color>
+  <color name="color_utility_color_accent_b">#ff00a9e0</color>
+  <color name="color_color_brand_loyalty">#ffd6a137</color>
+  <color name="color_color_brand_safety">#ff075de7</color>
+  <color name="color_color_text_nigative">#ffd6021a</color>
+  <color name="color_color_text_warning">#fff5841f</color>
+  <color name="color_color_text_postive">#ff239c35</color>
+  <color name="color_color_text_placeholder">#ff8697a4</color>
+  <color name="color_utility_color_on_tap_state_on_light_background">#ff2d2e2e</color>
+  <color name="color_utility_color_on_tap_state_on_dark_background">#ff2d2e2e</color>
+  <color name="color_utility_color_disabled_state">#ff2d2e2e</color>
   <color name="font_styles_link_normal_grey_font_color">#ff606c74</color>
   <color name="font_styles_link_normal_grey_font_color_night">#ffc3ccd2</color>
   <color name="font_styles_chip_label_medium_font_color">#ff2d2e2e</color>
@@ -151,7 +218,7 @@
   <color name="font_styles_button_primary_big_font_color">#ffffffff</color>
   <color name="font_styles_button_primary_big_font_color_night">#ffffffff</color>
   <color name="font_styles_item_title_font_color">#ff2d2e2e</color>
-  <color name="font_styles_item_title_font_color_night">#fff9fafb</color>
+  <color name="font_styles_item_title_font_color_night">#ff2d2e2e</color>
   <color name="font_styles_item_subtitle_font_color">#ff606c74</color>
   <color name="font_styles_item_subtitle_font_color_night">#ff606c74</color>
   
