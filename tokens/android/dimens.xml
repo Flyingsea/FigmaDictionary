@@ -2,12 +2,12 @@
 
 <!--
   Do not edit directly
-  Generated on Mon, 24 Feb 2020 11:23:41 GMT
+  Generated on Mon, 24 Feb 2020 12:57:31 GMT
 -->
 <resources>
   <dimen name="size_roundness_roundness_0">0</dimen>
   <dimen name="size_roundness_roundness_4">4</dimen>
-  <dimen name="size_roundness_roundness_11">4</dimen>
+  <dimen name="size_roundness_roundness_11">11</dimen>
   <dimen name="size_roundness_roundness_20">20</dimen>
   <dimen name="size_roundness_roundness_100">100</dimen>
   <dimen name="size_spacing_spacing_micro_4">4px</dimen>
@@ -16,7 +16,7 @@
   <dimen name="size_spacing_spacing_small_16">16px</dimen>
   <dimen name="size_spacing_spacing_standard_24">24px</dimen>
   <dimen name="size_spacing_spacing_medium_32">32px</dimen>
-  <dimen name="size_spacing_spacing_large_48">75px</dimen>
+  <dimen name="size_spacing_spacing_large_48">48px</dimen>
   <dimen name="size_spacing_spacing_x_large_64">64px</dimen>
   
 </resources>

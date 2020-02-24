@@ -2,7 +2,7 @@
 
 <!--
   Do not edit directly
-  Generated on Mon, 24 Feb 2020 11:23:41 GMT
+  Generated on Mon, 24 Feb 2020 12:57:31 GMT
 -->
 <resources>
   <string name="core_fonts_text_display_font_family">Inter, Inter-Bold</string>
@@ -44,7 +44,7 @@
   <string name="font_styles_chip_label_small_font_family">Inter, Inter-SemiBold</string>
   <string name="font_styles_chip_label_small_gold_font_family">Inter, Inter-SemiBold</string>
   <string name="font_styles_button_primary_small_font_family">Inter, Inter-Bold</string>
-  <string name="font_styles_button_primary_big_font_family">Beatrice Display, BeatriceDisplay-Medium</string>
+  <string name="font_styles_button_primary_big_font_family">Inter, Inter-Bold</string>
   <string name="font_styles_item_title_font_family">Inter, Inter-SemiBold</string>
   <string name="font_styles_item_subtitle_font_family">Inter, Inter-Regular</string>
   

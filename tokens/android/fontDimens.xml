@@ -2,7 +2,7 @@
 
 <!--
   Do not edit directly
-  Generated on Mon, 24 Feb 2020 11:23:41 GMT
+  Generated on Mon, 24 Feb 2020 12:57:31 GMT
 -->
 <resources>
   <dimen name="core_fonts_text_display_font_size">64sp</dimen>
@@ -162,7 +162,7 @@
   <dimen name="font_styles_button_primary_small_font_lineheight">24sp</dimen>
   <dimen name="font_styles_button_primary_small_font_letterspacing">0sp</dimen>
   <dimen name="font_styles_button_primary_big_font_size">18sp</dimen>
-  <dimen name="font_styles_button_primary_big_font_weight">500</dimen>
+  <dimen name="font_styles_button_primary_big_font_weight">700</dimen>
   <dimen name="font_styles_button_primary_big_font_lineheight">24sp</dimen>
   <dimen name="font_styles_button_primary_big_font_letterspacing">0sp</dimen>
   <dimen name="font_styles_item_title_font_size">14sp</dimen>
