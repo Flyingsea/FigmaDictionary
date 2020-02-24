@@ -725,7 +725,7 @@
             "type": "color"
         },
         "utility-color-primary": {
-            "value": "rgba(55.00000812113285, 180.00000447034836, 78.00001055002213, 1)",
+            "value": "rgba(152.0000061392784, 29.000000171363354, 151.00000619888306, 1)",
             "type": "color"
         },
         "color-text-label-on-light-background": {
@@ -1451,13 +1451,13 @@
         },
         "Button Primary Big": {
             "font-family": {
-                "value": "Inter, Inter-Bold"
+                "value": "Beatrice Display, BeatriceDisplay-Medium"
             },
             "font-size": {
                 "value": 18
             },
             "font-weight": {
-                "value": 700
+                "value": 500
             },
             "font-lineheight": {
                 "value": 24
@@ -1560,7 +1560,7 @@
                 "value": 4
             },
             "Roundness-11": {
-                "value": 11
+                "value": 4
             },
             "Roundness-20": {
                 "value": 20
@@ -1589,7 +1589,7 @@
                 "value": "32px"
             },
             "Spacing-Large-48": {
-                "value": "48px"
+                "value": "75px"
             },
             "Spacing-xLarge-64": {
                 "value": "64px"

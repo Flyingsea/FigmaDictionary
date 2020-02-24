@@ -3,7 +3,7 @@
 // CareemFonts.swift
 //
 // Do not edit directly
-// Generated on Mon, 24 Feb 2020 09:02:22 GMT
+// Generated on Mon, 24 Feb 2020 11:23:41 GMT
 //
 
 import UIKit
@@ -60,7 +60,7 @@ public enum CareemFonts {
     public static let fontStylesButtonPrimaryBigFontLetterspacing = CGFloat(0)
     public static let fontStylesButtonPrimaryBigFontLineheight = CGFloat(24)
     public static let fontStylesButtonPrimaryBigFontSize = CGFloat(18)
-    public static let fontStylesButtonPrimaryBigFontWeight = CGFloat(700)
+    public static let fontStylesButtonPrimaryBigFontWeight = CGFloat(500)
     public static let fontStylesButtonPrimarySmallFontLetterspacing = CGFloat(0)
     public static let fontStylesButtonPrimarySmallFontLineheight = CGFloat(24)
     public static let fontStylesButtonPrimarySmallFontSize = CGFloat(18)

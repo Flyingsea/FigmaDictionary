@@ -5,7 +5,6 @@ const fetch = require('node-fetch');
 const fs = require('fs');
 const path = require('path');
 var crypto = require('crypto');
-const icongen = require('icon-gen');
 
 const {get,post} = server.router;
 const app = express();

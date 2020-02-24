@@ -422,8 +422,8 @@ public enum CareemColors {
   ///R:45, G:46, B:46, Alpha:1
   public static let colorColorTextLinkSecondary = UIColor(red: 0.176, green: 0.180, blue: 0.180, alpha:1)
 
-  ///R:55, G:180, B:78, Alpha:1
-  public static let colorUtilityColorPrimary = UIColor(red: 0.216, green: 0.706, blue: 0.306, alpha:1)
+  ///R:152, G:29, B:151, Alpha:1
+  public static let colorUtilityColorPrimary = UIColor(red: 0.596, green: 0.114, blue: 0.592, alpha:1)
 
   ///R:134, G:151, B:164, Alpha:1
   public static let colorColorTextLabelOnLightBackground = UIColor(red: 0.525, green: 0.592, blue: 0.643, alpha:1)

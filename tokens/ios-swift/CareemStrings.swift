@@ -3,7 +3,7 @@
 // CareemStrings.swift
 //
 // Do not edit directly
-// Generated on Mon, 24 Feb 2020 09:02:22 GMT
+// Generated on Mon, 24 Feb 2020 11:23:41 GMT
 //
 
 import UIKit
@@ -21,7 +21,7 @@ public enum CareemStrings {
     public static let coreFontsTextDisplayFontFamily = "Inter, Inter-Bold"
     public static let fontStylesBottomsheetTitleBigFontFamily = "Inter, Inter-Bold"
     public static let fontStylesBottomsheetTitleSmallFontFamily = "Inter, Inter-Bold"
-    public static let fontStylesButtonPrimaryBigFontFamily = "Inter, Inter-Bold"
+    public static let fontStylesButtonPrimaryBigFontFamily = "Beatrice Display, BeatriceDisplay-Medium"
     public static let fontStylesButtonPrimarySmallFontFamily = "Inter, Inter-Bold"
     public static let fontStylesChipLabelMediumFontFamily = "Inter, Inter-SemiBold"
     public static let fontStylesChipLabelSmallFontFamily = "Inter, Inter-SemiBold"
