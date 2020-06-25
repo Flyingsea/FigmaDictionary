@@ -3,7 +3,7 @@
 // CareemFonts.swift
 //
 // Do not edit directly
-// Generated on Mon, 24 Feb 2020 12:57:31 GMT
+// Generated on Thu, 25 Jun 2020 06:39:56 GMT
 //
 
 import UIKit

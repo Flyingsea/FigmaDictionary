@@ -2,7 +2,7 @@
 
 <!--
   Do not edit directly
-  Generated on Mon, 24 Feb 2020 12:57:31 GMT
+  Generated on Thu, 25 Jun 2020 06:39:56 GMT
 -->
 <resources>
   <color name="color_careem_green_60">#ffe7f6ea</color>
@@ -143,7 +143,7 @@
   <color name="color_utility_color_destructive">#ffe2042b</color>
   <color name="color_utility_color_constructive">#ff37b44e</color>
   <color name="color_color_text_link_secondary">#ff2d2e2e</color>
-  <color name="color_utility_color_primary">#ff37b44e</color>
+  <color name="color_utility_color_primary">#ff854bff</color>
   <color name="color_color_text_label_on_light_background">#ff8697a4</color>
   <color name="color_color_text_label_on_dark_background">#ff606c74</color>
   <color name="color_utility_color_accent_a">#ff00c7b1</color>
