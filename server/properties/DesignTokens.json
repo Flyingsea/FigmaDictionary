@@ -1,0 +1,657 @@
+{
+    "roundness": {
+        "none": 0,
+        "small": 4,
+        "medium": 12,
+        "large": 20,
+        "full": 100
+    },
+    "durations": {
+        "instant": 0,
+        "veryFast": 50,
+        "fast": 100,
+        "medium": 300,
+        "slow": 700,
+        "xSlow": 1000,
+        "xxSlow": 3000
+    },
+    "elevationBase": {
+        "iOSdarkShort": {
+            "name": "black100",
+            "alpha": 0.2,
+            "offsetX": 0,
+            "offsetY": 1,
+            "radius": 10
+        },
+        "Android1dp": {
+            "name": "black100",
+            "alpha": 0.2,
+            "offsetX": 0,
+            "offsetY": 1,
+            "radius": 3
+        },
+        "iOSdarkMedium": {
+            "name": "black100",
+            "alpha": 0.25,
+            "offsetX": 0,
+            "offsetY": 3,
+            "radius": 20
+        },
+        "Android8dp": {
+            "name": "black100",
+            "alpha": 0.14,
+            "offsetX": 0,
+            "offsetY": 8,
+            "radius": 10
+        },
+        "iOSdarkLong": {
+            "name": "black100",
+            "alpha": 0.3,
+            "offsetX": 0,
+            "offsetY": 6,
+            "radius": 30
+        },
+        "Android16dp": {
+            "name": "black100",
+            "alpha": 0.14,
+            "offsetX": 0,
+            "offsetY": 16,
+            "radius": 24
+        },
+        "iOSlightLong": {
+            "name": "black100",
+            "alpha": 0.16,
+            "offsetX": 0,
+            "offsetY": 6,
+            "radius": 30
+        },
+        "iOSlightMedium": {
+            "name": "black100",
+            "alpha": 0.13,
+            "offsetX": 0,
+            "offsetY": 3,
+            "radius": 20
+        },
+        "iOSlightShort": {
+            "name": "black100",
+            "alpha": 0.1,
+            "offsetX": 0,
+            "offsetY": 1,
+            "radius": 10
+        }
+    },
+    "elevationAliasesiOS": {
+        "cardsOnMap": "iOSlightShort",
+        "cardsOnLightBackground": "iOSlightShort",
+        "cardsOnDarkBackground": "iOSlightLong",
+        "navMenu": "iOSdarkMedium",
+        "sections": "iOSlightShort",
+        "tooltipOnDarkBackground": "iOSdarkShort",
+        "tooltipOnLightBackground": "iOSlightShort",
+        "dialogs": "iOSdarkMedium",
+        "mapPins": "iOSdarkShort",
+        "mapPinOnDrag": "iOSdarkMedium",
+        "mapButtons": "iOSdarkShort",
+        "card": "iOSlightShort",
+        "header": "iOSlightShort",
+        "stickyHeaderOnScroll": "iOSlightMedium",
+        "bottomsheet": "iOSdarkLong"
+    },
+    "elevationAliasesAndroid": {
+        "cardsOnMap": "Android1dp",
+        "cardsOnLightBackground": "Android1dp",
+        "cardsOnDarkBackground": "Android1dp",
+        "navMenu": "Android8dp",
+        "sections": "Android1dp",
+        "tooltipOnDarkBackground": "Android1dp",
+        "tooltipOnLightBackground": "Android1dp",
+        "dialogs": "Android8dp",
+        "mapPins": "Android1dp",
+        "mapPinOnDrag": "Android8dp",
+        "mapButtons": "Android1dp",
+        "card": "Android1dp",
+        "header": "Android1dp",
+        "stickyHeaderOnScroll": "Android8dp",
+        "bottomsheet": "Android16dp"
+    },
+    "colorsBase": {
+        "green50": "#f2faf3",
+        "green60": "#e7f6ea",
+        "green70": "#c3e9ca",
+        "green80": "#9bdaa7",
+        "green90": "#73cb83",
+        "green100": "#18ab33",
+        "green110": "#118927",
+        "green120": "#0d6719",
+        "butterscotch60": "#fff7e8",
+        "butterscotch70": "#ffecc5",
+        "butterscotch80": "#ffdf9f",
+        "butterscotch90": "#ffd279",
+        "butterscotch100": "#ffbf3f",
+        "butterscotch110": "#ffa929",
+        "butterscotch120": "#e58b18",
+        "greyscale40": "#f9fafb",
+        "greyscale0": "#ffffff",
+        "greyscale50": "#f2f5f8",
+        "greyscale60": "#e3e8ec",
+        "greyscale70": "#c3ccd2",
+        "greyscale80": "#8697a4",
+        "textSecondary": "#505b635a",
+        "textTertiary": "#6b7e8b50",
+        "textPrimaryOnDarkBackground": "#ffffff",
+        "greyscale90": "#606c74",
+        "greyscale100": "#2d2e2e",
+        "textPrimary": "#2d2e2e",
+        "lightSlateBlue60": "#f0ebff",
+        "lightSlateBlue70": "#dacdff",
+        "lightSlateBlue80": "#c2acff",
+        "lightSlateBlue90": "#a98bff",
+        "lightSlateBlue100": "#8459ff",
+        "lightSlateBlue110": "#673eff",
+        "lightSlateBlue120": "#4c29e5",
+        "orange60": "#fef4e6",
+        "orange70": "#fde3c1",
+        "orange80": "#fcd098",
+        "orange90": "#fabd6f",
+        "orange100": "#f8a031",
+        "orange110": "#f5841f",
+        "orange120": "#e3690e",
+        "red60": "#ffe8ec",
+        "red70": "#f6b4bf",
+        "red80": "#f18295",
+        "red90": "#eb4f6b",
+        "red100": "#e2042b",
+        "red110": "#d6021a",
+        "red120": "#bf0311",
+        "blue60": "#e1ecfc",
+        "blue70": "#b5cef8",
+        "blue80": "#83aef3",
+        "blue90": "#518eee",
+        "blue100": "#075de7",
+        "blue110": "#0441dd",
+        "blue120": "#0027b2",
+        "gold60": "#faf4e7",
+        "gold70": "#f3e3c3",
+        "gold80": "#ebd09b",
+        "gold90": "#e2bd73",
+        "gold100": "#d6a137",
+        "gold110": "#c68523",
+        "gold120": "#9c6012"
+    },
+    "colorsAliases": {
+        "utilityDisabledState": {
+            "color": "greyscale100",
+            "opacity": 0.15
+        },
+        "textPrimary": {
+            "color": "textPrimary",
+            "opacity": 1
+        },
+        "borderSelected": {
+            "color": "green100",
+            "opacity": 1
+        },
+        "iconDefault": {
+            "color": "greyscale100",
+            "opacity": 1
+        },
+        "backgroundSelected": {
+            "color": "green50",
+            "opacity": 1
+        },
+        "backgroundLight": {
+            "color": "greyscale40",
+            "opacity": 1
+        },
+        "utilityOnTapStateOnDarkBackground": {
+            "color": "greyscale100",
+            "opacity": 0.15
+        },
+        "textSecondary": {
+            "color": "textSecondary",
+            "opacity": 1
+        },
+        "borderOnDarkBackground": {
+            "color": "greyscale60",
+            "opacity": 1
+        },
+        "iconDefaultSelected": {
+            "color": "green100",
+            "opacity": 1
+        },
+        "backgroundNegative": {
+            "color": "red100",
+            "opacity": 1
+        },
+        "backgroundCareemBlackTransparent": {
+            "color": "greyscale80",
+            "opacity": 0.1
+        },
+        "backgroundDark": {
+            "color": "greyscale50",
+            "opacity": 1
+        },
+        "utilityOnTapStateOnLightBackground": {
+            "color": "greyscale100",
+            "opacity": 0.05
+        },
+        "textTertiary": {
+            "color": "textTertiary",
+            "opacity": 1
+        },
+        "textOnDarkBackgorund": {
+            "color": "textPrimaryOnDarkBackground",
+            "opacity": 1
+        },
+        "borderOnLightBackground": {
+            "color": "greyscale50",
+            "opacity": 1
+        },
+        "iconDark": {
+            "color": "greyscale80",
+            "opacity": 1
+        },
+        "backgroundNegativeLight": {
+            "color": "red60",
+            "opacity": 1
+        },
+        "backgroundDefault": {
+            "color": "greyscale0",
+            "opacity": 1
+        },
+        "utilityPrimary": {
+            "color": "green100",
+            "opacity": 1
+        },
+        "textLinkPrimary": {
+            "color": "green100",
+            "opacity": 1
+        },
+        "borderError": {
+            "color": "red110",
+            "opacity": 1
+        },
+        "iconDarkSelected": {
+            "color": "green100",
+            "opacity": 1
+        },
+        "backgroundWarning": {
+            "color": "orange100",
+            "opacity": 1
+        },
+        "backgroundOrangeTransparent": {
+            "color": "orange100",
+            "opacity": 0.1
+        },
+        "backgroundPageDefault": {
+            "color": "greyscale0",
+            "opacity": 1
+        },
+        "utilityError": {
+            "color": "red100",
+            "opacity": 1
+        },
+        "borderSuccess": {
+            "color": "green100",
+            "opacity": 1
+        },
+        "iconLight": {
+            "color": "greyscale70",
+            "opacity": 1
+        },
+        "backgroundWarningLight": {
+            "color": "orange60",
+            "opacity": 1
+        },
+        "backgroundBlueTransparent": {
+            "color": "blue100",
+            "opacity": 0.1
+        },
+        "backgroundPageLight": {
+            "color": "greyscale50",
+            "opacity": 1
+        },
+        "utilitySuccess": {
+            "color": "green100",
+            "opacity": 1
+        },
+        "borderWarning": {
+            "color": "orange100",
+            "opacity": 1
+        },
+        "iconLightSelected": {
+            "color": "green100",
+            "opacity": 1
+        },
+        "backgroundPositive": {
+            "color": "green100",
+            "opacity": 1
+        },
+        "backgroundLightSlateBlueTransparent": {
+            "color": "lightSlateBlue100",
+            "opacity": 0.1
+        },
+        "primaryGraphData1": {
+            "color": "green100",
+            "opacity": 1
+        },
+        "utilityDestructive": {
+            "color": "red100",
+            "opacity": 1
+        },
+        "pageHeaderBorder": {
+            "color": "greyscale50",
+            "opacity": 1
+        },
+        "backgroundPositiveLight": {
+            "color": "green60",
+            "opacity": 1
+        },
+        "primaryGraphData2": {
+            "color": "green80",
+            "opacity": 1
+        },
+        "utilityConstructive": {
+            "color": "green100",
+            "opacity": 1
+        },
+        "textNegative": {
+            "color": "red110",
+            "opacity": 1
+        },
+        "borderSeparatorOnLightBackground": {
+            "color": "greyscale50",
+            "opacity": 1
+        },
+        "backgroundOverlayLight": {
+            "color": "greyscale100",
+            "opacity": 0.4
+        },
+        "backgroundGoldTransparent": {
+            "color": "gold100",
+            "opacity": 0.1
+        },
+        "primaryGraphData3": {
+            "color": "green60",
+            "opacity": 1
+        },
+        "textWarning": {
+            "color": "orange110",
+            "opacity": 1
+        },
+        "borderSeparatorOnDarkBackground": {
+            "color": "greyscale60",
+            "opacity": 1
+        },
+        "backgroundOverlayDark": {
+            "color": "greyscale100",
+            "opacity": 0.2
+        },
+        "secondaryGraphData1": {
+            "color": "blue100",
+            "opacity": 1
+        },
+        "secondaryGraphData2": {
+            "color": "greyscale60",
+            "opacity": 1
+        },
+        "secondaryGraphData3": {
+            "color": "blue60",
+            "opacity": 1
+        },
+        "backgroundCareemGreenTransparent": {
+            "color": "green100",
+            "opacity": 0.1
+        },
+        "textPositive": {
+            "color": "green100",
+            "opacity": 1
+        },
+        "brandLoyalty": {
+            "color": "gold100",
+            "opacity": 1
+        },
+        "brandSafety": {
+            "color": "blue100",
+            "opacity": 1
+        }
+    },
+    "typographyBase": {
+        "display": {
+            "family": "Inter, Inter-Bold",
+            "size": 64,
+            "weight": 700,
+            "lineheight": 76,
+            "letterspacing": 0
+        },
+        "headerXLarge": {
+            "family": "Inter, Inter-Bold",
+            "size": 32,
+            "weight": 700,
+            "lineheight": 36,
+            "letterspacing": 0
+        },
+        "headerLarge": {
+            "family": "Inter, Inter-Bold",
+            "size": 24,
+            "weight": 700,
+            "lineheight": 32,
+            "letterspacing": 0
+        },
+        "headerMedium": {
+            "family": "Inter, Inter-Bold",
+            "size": 18,
+            "weight": 700,
+            "lineheight": 24,
+            "letterspacing": 0
+        },
+        "headerSmall": {
+            "family": "Inter, Inter-SemiBold",
+            "size": 16,
+            "weight": 400,
+            "lineheight": 20,
+            "letterspacing": 0
+        },
+        "headerLight": {
+            "family": "Inter, Inter-SemiBold",
+            "size": 12,
+            "weight": 400,
+            "lineheight": 16,
+            "letterspacing": 0
+        },
+        "bodyLarge": {
+            "family": "Inter, Inter-Regular",
+            "size": 16,
+            "weight": 400,
+            "lineheight": 24,
+            "letterspacing": 0
+        },
+        "bodySmall": {
+            "family": "Inter, Inter-Regular",
+            "size": 14,
+            "weight": 400,
+            "lineheight": 20,
+            "letterspacing": 0
+        },
+        "bodySmallHighlight": {
+            "family": "Inter, Inter-SemiBold",
+            "size": 14,
+            "weight": 400,
+            "lineheight": 20,
+            "letterspacing": 0
+        },
+        "bodyMicro": {
+            "family": "Inter, Inter-Regular",
+            "size": 12,
+            "weight": 400,
+            "lineheight": 16,
+            "letterspacing": 0
+        },
+        "bodyMicroHighlight": {
+            "family": "Inter, Inter-SemiBold",
+            "size": 12,
+            "weight": 400,
+            "lineheight": 16,
+            "letterspacing": 0
+        }
+    },
+    "typographyStyles": {
+        "linkNormalGrey": {
+            "base": "bodyLarge",
+            "color": "greyscale90"
+        },
+        "chipLabelMedium": {
+            "base": "bodySmallHighlight",
+            "color": "greyscale100"
+        },
+        "placeholderNormal": {
+            "base": "bodyLarge",
+            "color": "greyscale80"
+        },
+        "bottomsheetTitleSmall": {
+            "base": "headerLarge",
+            "color": "greyscale100"
+        },
+        "linkMicroGreen": {
+            "base": "bodyMicro",
+            "color": "green110"
+        },
+        "listTitleSmall": {
+            "base": "bodySmallHighlight",
+            "color": "greyscale100"
+        },
+        "listDescription": {
+            "base": "bodySmallHighlight",
+            "color": "greyscale80"
+        },
+        "listTitleBig": {
+            "base": "headerSmall",
+            "color": "greyscale100"
+        },
+        "tooltipLabel": {
+            "base": "bodySmall",
+            "color": "greyscale0"
+        },
+        "sectionTitleSmall": {
+            "base": "headerLight",
+            "color": "greyscale80"
+        },
+        "screenTitleMicro": {
+            "base": "headerSmall",
+            "color": "greyscale100"
+        },
+        "listTitleBigSelected": {
+            "base": "headerSmall",
+            "color": "green100"
+        },
+        "infoLabelTimestamp": {
+            "base": "bodyMicro",
+            "color": "greyscale80"
+        },
+        "infoLabelSmallRewards": {
+            "base": "bodyMicro",
+            "color": "gold120"
+        },
+        "infoLabelSmallError": {
+            "base": "bodyMicro",
+            "color": "red110"
+        },
+        "paragraphTitleBig": {
+            "base": "headerLarge",
+            "color": "greyscale100"
+        },
+        "paragraphSmall": {
+            "base": "bodySmall",
+            "color": "greyscale100"
+        },
+        "paragraphSmallSecondary": {
+            "base": "bodySmall",
+            "color": "greyscale90"
+        },
+        "paragraphTitleMedium": {
+            "base": "headerMedium",
+            "color": "greyscale100"
+        },
+        "tabNotSelected": {
+            "base": "headerSmall",
+            "color": "greyscale80"
+        },
+        "tabSelected": {
+            "base": "headerSmall",
+            "color": "green100"
+        },
+        "paragraphMediumSecondary": {
+            "base": "bodyLarge",
+            "color": "greyscale90"
+        },
+        "paragraphMedium": {
+            "base": "bodyLarge",
+            "color": "greyscale100"
+        },
+        "screenTitleBig": {
+            "base": "headerXLarge",
+            "color": "greyscale100"
+        },
+        "screenTitleSmall": {
+            "base": "headerLarge",
+            "color": "greyscale100"
+        },
+        "bottomsheetTitleBig": {
+            "base": "headerXLarge",
+            "color": "greyscale100"
+        },
+        "chipLabelSmall": {
+            "base": "headerLight",
+            "color": "greyscale100"
+        },
+        "chipLabelSmallGold": {
+            "base": "headerLight",
+            "color": "gold120"
+        },
+        "buttonPrimarySmall": {
+            "base": "headerSmall",
+            "color": "textPrimaryOnDarkBackground"
+        },
+        "buttonPrimaryBig": {
+            "base": "headerMedium",
+            "color": "textPrimaryOnDarkBackground"
+        },
+        "itemTitle": {
+            "base": "headerSmall",
+            "color": "greyscale100"
+        },
+        "itemTitleSmall": {
+            "base": "bodySmallHighlight",
+            "color": "greyscale100"
+        },
+        "itemSubtitle": {
+            "base": "bodySmall",
+            "color": "greyscale90"
+        }
+    },
+    "spacingBase": {
+        "micro": 4,
+        "nano": 2,
+        "tiny": 8,
+        "small": 16,
+        "standard": 24,
+        "medium": 32,
+        "large": 48,
+        "xLarge": 64,
+        "xxLarge": 88
+    },
+    "spacingAliases": {
+        "marginSmall": "tiny",
+        "iconSmall": "small",
+        "layoutSpaceAfterSelection": "medium",
+        "marginMedium": "small",
+        "iconMedium": "standard",
+        "layoutСolGutterSmall": "tiny",
+        "marginLarge": "standard",
+        "iconLarge": "medium",
+        "layoutСolGutterMedium": "small",
+        "marginScreen": "small",
+        "iconXLarge": "large",
+        "layoutСolGutterLarger": "standard"
+    }
+}

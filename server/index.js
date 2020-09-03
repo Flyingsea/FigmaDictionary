@@ -10,135 +10,68 @@ const {get,post} = server.router;
 const app = express();
 
 
-// Path where we store the download sessions
-const DL_SESSION_FOLDER = '/var/download_sessions';
-
-/* Creates a download session */
-function createDownload(filePath, callback) {
-  // Check the existence of DL_SESSION_FOLDER
-  if (!fs.existsSync(DL_SESSION_FOLDER)) return callback(new Error('Session directory does not exist'));
-
-  // Check the existence of the file
-  if (!fs.existsSync(filePath)) return callback(new Error('File doest not exist'));
-
-  // Generate the download sid (session id)
-  var downloadSid = crypto.createHash('md5').update(Math.random().toString()).digest('hex');
-
-  // Generate the download session filename
-  var dlSessionFileName = path.join(DL_SESSION_FOLDER, downloadSid + '.download');
-
-  // Write the link of the file to the download session file
-  fs.writeFile(dlSessionFileName, filePath, function(err) {
-    if (err) return callback(err);
-
-    // If succeeded, return the new download sid
-    callback(null, downloadSid);
-  });
-}
-
-/* Gets the download file path related to a download sid */
-function getDownloadFilePath(downloadSid, callback) {
-  // Get the download session file name
-  var dlSessionFileName = path.join(DL_SESSION_FOLDER, downloadSid + '.download');
-
-  // Check if the download session exists
-  if (!fs.existsSync(dlSessionFileName)) return callback(new Error('Download does not exist'));
-
-  // Get the file path
-  fs.readFile(dlSessionFileName, function(err, data) {
-    if (err) return callback(err);
-
-    // Return the file path
-    callback(null, data);
-  });
-}
-
-/* Deletes a download session */
-function deleteDownload(downloadSid, callback) {
-  // Get the download session file name
-  var dlSessionFileName = path.join(DL_SESSION_FOLDER, downloadSid + '.download');
-
-  // Check if the download session exists
-  if (!fs.existsSync(dlSessionFileName)) return callback(new Error('Download does not exist'));
-
-  // Delete the download session
-  fs.unlink(dlSessionFileName, function(err) {
-    if (err) return callback(err);
-
-    // Return success (no error)
-    callback();
-  });
-}
 
 //Startup
 app.get('/api/build', cors(), (req, res) => {
   getStylesArtboard(
-    "29441-121e495c-c18b-48b8-8d82-1fb9b285032d",
-    "jVyKdFBIcpDrgcf687DjH5"
+    "58002-b1a0d4fe-0bb9-45ee-94e5-1e040fed423f",
+    "TiIeuJJHc08AJ30JVVCx8qR1"
   );
-  var downloadSid = req.query.sid;
-
-  // Get the download file path
-  getDownloadFilePath(downloadSid, function(err, path) {
-  if (err) return res.end('Error');
-
-  // Read and send the file here...
-
-  // Finally, delete the download session to invalidate the link
-  deleteDownload(downloadSid, function(err) {
-    // ...
-  });
-});
 });
 
 
 app.listen(3001, () => {
   console.log('Express server is running on localhost:3001');
   getStylesArtboard(
-    "29441-121e495c-c18b-48b8-8d82-1fb9b285032d",
-    "jVyKdFBIcpDrgcf687DjH5"
+    "58002-b1a0d4fe-0bb9-45ee-94e5-1e040fed423f",
+    "TiIeuJJHc08AJ30JVVCx8qR1"
   );}
 );
 
-//Creating token
+//Creating tokens
 function createStyles(){
   const styleDictionary = require('style-dictionary').extend('config.js');
   styleDictionary.buildAllPlatforms();
 }
 
-//Cleaning tokenss
+//Cleaning tokens
 function cleanStyles(){
   const styleDictionary = require('style-dictionary').extend('config.js');
   styleDictionary.cleanAllPlatforms();
   delete styleDictionary;
 }
 
-
+const rgbToHex = (r, g, b) => '#' + [r, g, b].map(x => {
+  const hex = x.toString(16)
+  return hex.length === 1 ? '0' + hex : hex
+}).join('')
 
 //Color JSON
-function getColors(stylesArtboard) {
+function getColorsBase(artboards, globalStyles) {
   // empty "colors obj" wheree we will store all colors
   const colors = {};
-  // get "colors" artboard
-  const colorsAtrboard = stylesArtboard.filter(item => {
-    return item.name === "Colors";
-  })[0].children;
 
+  // get "colors" artboard
+  const colorsArtboard = artboards.filter(item => {
+    return item.name === "colorsBase";
+  })[0].children;
+  var itemOpacity = ""
 
   // get colors from each children
-  colorsAtrboard.map(item => {
+  colorsArtboard.map(item => {
     if (item.name.startsWith("@")) {
 
       function rbaObj(obj) {
-        return item.fills[0].color[obj] * 255;
+        return Math.round(item.fills[0].color[obj]*255);
+      }
+      if (item.fills[0].opacity){
+        var itemOpacity = (item.fills[0].opacity.toFixed(2)*100).toString(16)
+      }
+      else {
+        var itemOpacity = ""
       }
       const colorObj = {
-        [item.name.substring(1)]: {
-          value: `rgba(${rbaObj("r")}, ${rbaObj("g")}, ${rbaObj("b")}, ${
-                      item.fills[0].color.a
-                  })`,
-          type: "color"
-        }
+        [getStyleName(item.styles.fill, globalStyles).replace('/','')]: rgbToHex(rbaObj('r'),rbaObj('g'),rbaObj('b'))+itemOpacity
       };
 
       Object.assign(colors, colorObj);
@@ -149,28 +82,29 @@ function getColors(stylesArtboard) {
 }
 
 //Color Aliases JSON
-function getColorAliases(stylesArtboard) {
+function getColorsAliases(artboards, globalStyles) {
   // empty "colors obj" wheree we will store all colors
   const colors = {};
   // get "colors" artboard
-  const colorsAtrboard = stylesArtboard.filter(item => {
-    return item.name === "ColorsAliases";
+  const colorsArtboard = artboards.filter(item => {
+    return item.name === "colorsAliases";
   })[0].children;
 
 
   // get colors from each children
-  colorsAtrboard.map(item => {
-    if (item.name.startsWith("@")) {
-
-      function rbaObj(obj) {
-        return item.fills[0].color[obj] * 255;
+    colorsArtboard.filter(item => {
+      return item.name === "AliasComponent";}).map(item => {
+    if (item.children[2].name.startsWith("@")) {
+      if (item.children[2].opacity){
+        var itemOpacity = item.children[2].opacity.toFixed(2)
+      }
+      else {
+        var itemOpacity = ""
       }
       const colorObj = {
-        [item.name.substring(1)]: {
-          value: `rgba(${rbaObj("r")}, ${rbaObj("g")}, ${rbaObj("b")}, ${
-                      item.fills[0].color.a
-                  })`,
-          type: "color"
+        [item.children[1].characters]: {
+          "color": getStyleName(item.children[2].styles.fill, globalStyles).replace('/',''),
+          "opacity": Number(itemOpacity) || 1
         }
       };
 
@@ -181,46 +115,67 @@ function getColorAliases(stylesArtboard) {
   return colors;
 }
 
+
 //Spacings JSON
-function getSpacing(stylesArtboard) {
+function getSpacingBase(artboards, globalStyles) {
   // empty object
-  const spacing = {
-        spacing: {}
-  };
+  const spacing = {};
   // get the artboard
-  const spacingAtrboard = stylesArtboard.filter(item => {
-    return item.name === "Spacing";
+  const spacingArtboard = artboards.filter(item => {
+    return item.name === "spacingBase";
   })[0].children;
 
-  spacingAtrboard.map(item => {
-    if (item.name.startsWith("@")) {
+  spacingArtboard.filter(item => {
+    return item.type === "COMPONENT";}).map(item => {
+    if (item.children[0].name.startsWith("@")) {
       const spacerObj = {
-        [item.name.substring(1)]: {
-          value: `${item.absoluteBoundingBox.height}px`,
-        }
+        [item.children[0].name.substring(1)]: item.children[0].absoluteBoundingBox.height
       };
 
-      Object.assign(spacing.spacing, spacerObj);
+      Object.assign(spacing, spacerObj);
     }
   });
 
   return spacing;
 }
 
-function getDurations(stylesArtboard) {
+function getSpacingAliases(artboards, globalStyles) {
+  // empty object
+  const spacing = {};
+
+  // get the artboard
+  const spacingArtboard = artboards.filter(item => {
+    return item.name === "spacingAliases";
+  })[0].children;
+
+  spacingArtboard.filter(item => {
+    return item.name === "SpacingAliasComponent";}).map(item => {
+    if (item.children[2].children[0].name.startsWith("@")) {
+      const spacerObj = {
+        [item.children[1].characters]: item.children[2].name
+      };
+
+      Object.assign(spacing, spacerObj);
+    }
+  });
+
+  return spacing;
+}
+
+
+//Durations JSON
+function getDurations(artboards) {
   // empty object
   const durations = {};
   // get the artboard
-  const durationsAtrboard = stylesArtboard.filter(item => {
-    return item.name === "Durations";
+  const durationsAtrboard = artboards.filter(item => {
+    return item.name === "duration";
   })[0].children;
 
   durationsAtrboard.map(item => {
     if (item.name.startsWith("@")) {
       const durationsObj = {
-        [item.name.substring(1)]: {
-          value: item.characters,
-        }
+        [item.name.substring(1)]: Number(item.characters),
       };
 
       Object.assign(durations, durationsObj);
@@ -230,59 +185,53 @@ function getDurations(stylesArtboard) {
   return durations;
 }
 
-function getRoundness(stylesArtboard) {
+//Roundness JSON
+function getRoundness(artboards) {
   // empty object
-  const roundness = {
-    roundness: {}
-  };
+  const roundness = {};
   // get the artboard
-  const roundnessAtrboard = stylesArtboard.filter(item => {
-    return item.name === "Roundness";
+  const roundnessAtrboard = artboards.filter(item => {
+    return item.name === "roundness";
   })[0].children;
 
-  roundnessAtrboard.map(item => {
-    if (item.name.startsWith("@")) {
+  roundnessAtrboard.filter(item => {
+      return item.name === "AliasComponent";}).map(item => {
+    if (item.children[2].name.startsWith("@")) {
       const roundnessObj = {
-        [item.name.substring(1)]: {
-          value: item.cornerRadius || 0,
-        }
+        [item.children[1].characters]: item.children[2].cornerRadius || 0,
+
       };
 
-      Object.assign(roundness.roundness, roundnessObj);
+      Object.assign(roundness, roundnessObj);
     }
   });
   return roundness;
 }
 
-function getShadows(stylesArtboard) {
+//Shadows JSON
+function getElevationBase(artboards, globalStyles) {
   // empty object
   const shadows = {};
   // get the artboard
-  const shadowsAtrboard = stylesArtboard.filter(item => {
-    return item.name === "Shadows";
+  const elevationsArtboard = artboards.filter(item => {
+    return item.name === "elevationBase";
   })[0].children;
 
-  shadowsAtrboard.map(item => {
+
+  elevationsArtboard.map(item => {
     if (item.name.startsWith("@")) {
+
+      function rbaObj(obj) {
+        return Math.round(item.fills[0].color[obj]*255);
+      }
       const shadowsObj = {
-        [item.name.substring(1)]: {
-         color: {
-            value: `rgba(${item.effects[0].color.r*255}, ${item.effects[0].color.g*255}, ${item.effects[0].color.b*255}, ${item.effects[0].color.a})`,
-            type: "shadow"
-          },
-          offset: {
-            x: item.effects[0].offset.x,
-            y: item.effects[0].offset.y,
-            type: "shadow"
-          },
-          radius: {
-            value: item.effects[0].radius,
-            type: "shadow"
-          },
-          blendMode: {
-            value: item.effects[0].blendMode,
-            type: "shadow"
-          }
+        [getStyleName(item.styles.effect, globalStyles).replace('/','')]: {
+          //name: rgbToHex(rbaObj('r'),rbaObj('g'),rbaObj('b')),
+          name: 'black100', // HARDCODE
+          alpha: Number(item.effects[0].color.a.toPrecision(2)),
+          offsetX: item.effects[0].offset.x,
+          offsetY: item.effects[0].offset.y,
+          radius: item.effects[0].radius,
         }
       };
 
@@ -293,47 +242,95 @@ function getShadows(stylesArtboard) {
   return shadows;
 }
 
+function getElevationAliasesiOS(artboards, globalStyles) {
+  // empty "colors obj" wheree we will store all colors
+  const shadows = {};
+  // get "shadows" artboard
+  var elevationsArtboard = artboards.filter(item => {
+    return item.name === "elevationsAliasesiOS";
+  })[0].children;
+  // get shadows from each children
+    elevationsArtboard.filter(item => {
+      return item.name === "AliasComponent";}).map(item => {
+    if (item.children[2].name.startsWith("@")) {
+
+      const shadowObj = {
+        [item.children[1].characters]: getStyleName(item.children[2].styles.effect, globalStyles).replace('/',''),
+      };
+
+      Object.assign(shadows, shadowObj);
+    }
+  });
+
+  return shadows;
+}
+
+function getElevationAliasesAndroid(artboards, globalStyles) {
+  // empty "colors obj" wheree we will store all colors
+  const shadows = {};
+  // get "shadows" artboard
+  var elevationsArtboard = artboards.filter(item => {
+    return item.name === "elevationsAliasesAndroid";
+  })[0].children[0].children;
+  // get shadows from each children
+    elevationsArtboard.filter(item => {
+      return item.name === "AliasComponent";}).map(item =>   {
+    if (item.children[2].name.startsWith("@")) {
+
+      const shadowObj = {
+        [item.children[1].characters]: getStyleName(item.children[2].styles.effect, globalStyles).replace('/',''),
+      };
+
+      Object.assign(shadows, shadowObj);
+    }
+  });
+
+  return shadows;
+}
+
+
+// function getGlobalStyles(stylesArtboard) {
+//
+// }
+function getStyleName(styleCode, globalStyles) {
+  if (globalStyles[styleCode].name.includes("white")) {
+    return "white"
+  }
+  else {
+    return globalStyles[styleCode].name
+  }
+}
+
 
 //Basic typography scale JSON
-function getScale(stylesArtboard) {
+function getTypographyBase(artboards, globalStyles) {
   // empty object
   const typography = {};
   // get the artboard
-  var typographyAtrboard = stylesArtboard.filter(item => {
-    return item.name === "Typography";
+  var typographyArtboard = artboards.filter(item => {
+    return item.name === "typographyBase";
   })[0].children;
-  typographyAtrboard.map((fontItem, i) => {
+
+  typographyArtboard.map((fontItem, i) => {
     if (fontItem.name.startsWith("@")) {
+
       let fontObj = {
-        [fontItem.name.substring(1)]: {
+        [getStyleName(fontItem.styles.text, globalStyles).split('/').pop().split(' ')[0]]: {
 
           //setting font family
-          "font-family": {
-            value: `${fontItem.style.fontFamily}, ${
-                        fontItem.style.fontPostScriptName
-                    }`,
-          },
+          "family": `${fontItem.style.fontFamily}, ${fontItem.style.fontPostScriptName}`,
 
           //setting font size
-          "font-size": {
-            value: fontItem.style.fontSize,
-          },
+          "size": fontItem.style.fontSize,
 
           //setting font weight
-          "font-weight": {
-            value: fontItem.style.fontWeight,
-          },
+          "weight": fontItem.style.fontWeight,
 
           //setting lineheight
-          "font-lineheight": {
-            value: fontItem.style.lineHeightPx,
-          },
+          "lineheight": fontItem.style.lineHeightPx,
 
           //setting letterspacing
-          "font-letterspacing": {
-            value: fontItem.style.letterSpacing !== 0 ?
-              `${fontItem.style.letterSpacing}` : 0,
-          }
+          "letterspacing": fontItem.style.letterSpacing !== 0 ? `${fontItem.style.letterSpacing}` : 0,
         }
       };
 
@@ -345,53 +342,21 @@ function getScale(stylesArtboard) {
   return typography;
 }
 
-
 //Font styles JSON
-function getFontStyles(stylesArtboard) {
+function getTypographyStyles(artboards, globalStyles) {
   // empty object
   const typography = {};
   // get the artboard
-  var typographyAtrboard = stylesArtboard.filter(item => {
-    return item.name === "Styles Day";
+  var typographyArtboard = artboards.filter(item => {
+    return item.name === "typographyStylesDay";
   })[0].children;
-  typographyAtrboard.map((fontItem, i) => {
+  typographyArtboard.map((fontItem, i) => {
     if (fontItem.name.startsWith("@")) {
 
-      console.log(fontItem.fills[0]);
       let fontObj = {
         [fontItem.name.substring(1)]: {
-
-          //setting font family
-          "font-family": {
-            value: `${fontItem.style.fontFamily}, ${
-                        fontItem.style.fontPostScriptName
-                    }`,
-          },
-
-          //setting font size
-          "font-size": {
-            value: fontItem.style.fontSize,
-          },
-
-          //setting font weight
-          "font-weight": {
-            value: fontItem.style.fontWeight,
-          },
-
-          //setting lineheight
-          "font-lineheight": {
-            value: fontItem.style.lineHeightPx,
-          },
-
-          //setting letterspacing
-          "font-letterspacing": {
-            value: fontItem.style.letterSpacing !== 0 ?
-              `${fontItem.style.letterSpacing}` : 0,
-          },
-          //setting color
-          "font-color": {
-          value: `rgba(${fontItem.fills[0].color.r*255}, ${fontItem.fills[0].color.g*255}, ${fontItem.fills[0].color.b*255}, ${fontItem.fills[0].color.a})`,
-          }
+          base: getStyleName(fontItem.styles.text, globalStyles).split('/').pop().split(' ')[0],
+          color: getStyleName(fontItem.styles.fill, globalStyles).replace('/',''),
         }
       };
 
@@ -401,21 +366,18 @@ function getFontStyles(stylesArtboard) {
     }
   });
 
-  //Getting night colors
-  typographyAtrboard = stylesArtboard.filter(item => {
-    return item.name === "Styles Night";
-  })[0].children[0].children;
-  console.log(typographyAtrboard);
-  typographyAtrboard.map((fontItem, i) => {
-    if (fontItem.name.startsWith("@")) {
-      let fontObj = {
-        "font-color-night": {
-        value: `rgba(${fontItem.fills[0].color.r*255}, ${fontItem.fills[0].color.g*255}, ${fontItem.fills[0].color.b*255}, ${fontItem.fills[0].color.a})`,
-        }
-      };
-      Object.assign(typography[fontItem.name.substring(1)], fontObj);
-    }
-  });
+  // //Getting night colors
+  // typographyArtboard = artboards.filter(item => {
+  //   return item.name === "typographyStylesNight";
+  // })[0].children[0].children;
+  // typographyArtboard.map((fontItem, i) => {
+  //   if (fontItem.name.startsWith("@")) {
+  //     let fontObj = {
+  //       "colorNight":  getStyleName(fontItem.styles.fill, globalStyles).replace('/',''),
+  //     };
+  //     Object.assign(typography[fontItem.name.substring(1)], fontObj);
+  //   }
+  // });
   return typography;
 }
 
@@ -429,45 +391,48 @@ async function getStylesArtboard(figmaApiKey, figmaId) {
   });
   const figmaTreeStructure = await result.json();
 
-  const stylesArtboard = figmaTreeStructure.document.children.filter(item => {
+  const artboards = figmaTreeStructure.document.children.filter(item => {
     return item.name === "Tokens";
   })[0].children;
 
+  const globalStyles = figmaTreeStructure.styles;
+
   //Json structure
   var baseTokensJSON = {
-    CoreFonts: {},
-    color: {},
-    FontStyles: {},
-    time: {},
-    size: {},
+    roundness: {},
+    durations: {},
+    elevationBase: {},
+    elevationAliasesiOS: {},
+    elevationAliasesAndroid: {},
+    colorsBase: {},
+    colorsAliases: {},
+    typographyBase: {},
+    typographyStyles: {},
+    spacingBase: {},
+    spacingAliases: {},
+
   };
 
-  Object.assign(baseTokensJSON.time, getDurations(stylesArtboard));
-  Object.assign(baseTokensJSON.size, getRoundness(stylesArtboard));
-  Object.assign(baseTokensJSON.size, getSpacing(stylesArtboard));
-  Object.assign(baseTokensJSON.CoreFonts, getScale(stylesArtboard));
-  Object.assign(baseTokensJSON.color, getColors(stylesArtboard));
-  Object.assign(baseTokensJSON.color, getColorAliases(stylesArtboard));
-  Object.assign(baseTokensJSON.FontStyles, getFontStyles(stylesArtboard));
+  Object.assign(baseTokensJSON.durations, getDurations(artboards));
+  Object.assign(baseTokensJSON.roundness, getRoundness(artboards));
+  Object.assign(baseTokensJSON.elevationBase, getElevationBase(artboards, globalStyles));
+  Object.assign(baseTokensJSON.elevationAliasesiOS, getElevationAliasesiOS(artboards, globalStyles));
+  Object.assign(baseTokensJSON.elevationAliasesAndroid, getElevationAliasesAndroid(artboards, globalStyles));
+  Object.assign(baseTokensJSON.spacingBase, getSpacingBase(artboards, globalStyles));
+  Object.assign(baseTokensJSON.spacingAliases, getSpacingAliases(artboards, globalStyles));
+  Object.assign(baseTokensJSON.colorsAliases, getColorsAliases(artboards, globalStyles));
+  Object.assign(baseTokensJSON.colorsBase, getColorsBase(artboards, globalStyles));
+  Object.assign(baseTokensJSON.typographyBase, getTypographyBase(artboards, globalStyles));
+  Object.assign(baseTokensJSON.typographyStyles, getTypographyStyles(artboards, globalStyles));
 
 
   const directory = 'properties/';
 
-  //Cleaning the properties directory
-  fs.readdir(directory, (err, files) => {
-    if (err) throw err;
 
-    for (const file of files) {
-      fs.unlinkSync(path.join(directory, file), err => {
-        if (err) throw err;
-      });
-    }
-  });
-  await console.log("deleted");
 
 
   //Writing new properties JSON
-  fs.writeFileSync("properties/"+Date.now()+".json", JSON.stringify(baseTokensJSON, null, 4), function(err) {
+  fs.writeFileSync("properties/DesignTokens.json", JSON.stringify(baseTokensJSON, null, 4), function(err) {
       if(err) {
           return console.log(err);
       }
@@ -476,10 +441,7 @@ async function getStylesArtboard(figmaApiKey, figmaId) {
       }
   });
 
-  //Cleaning and creating new styles
-  await cleanStyles();
-  await console.log("cleared");
-  await createStyles();
-  await console.log("✅done"+Date.now());
+  console.log("✅done")
+
 
 }
