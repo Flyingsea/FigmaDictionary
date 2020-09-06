@@ -17,63 +17,63 @@
     },
     "elevationBase": {
         "iOSdarkShort": {
-            "name": "black100",
+            "name": "greyscale100",
             "alpha": 0.2,
             "offsetX": 0,
             "offsetY": 1,
             "radius": 10
         },
         "Android1dp": {
-            "name": "black100",
+            "name": "greyscale100",
             "alpha": 0.2,
             "offsetX": 0,
             "offsetY": 1,
             "radius": 3
         },
         "iOSdarkMedium": {
-            "name": "black100",
+            "name": "greyscale100",
             "alpha": 0.25,
             "offsetX": 0,
             "offsetY": 3,
             "radius": 20
         },
         "Android8dp": {
-            "name": "black100",
+            "name": "greyscale100",
             "alpha": 0.14,
             "offsetX": 0,
             "offsetY": 8,
             "radius": 10
         },
         "iOSdarkLong": {
-            "name": "black100",
+            "name": "greyscale100",
             "alpha": 0.3,
             "offsetX": 0,
             "offsetY": 6,
             "radius": 30
         },
         "Android16dp": {
-            "name": "black100",
+            "name": "greyscale100",
             "alpha": 0.14,
             "offsetX": 0,
             "offsetY": 16,
             "radius": 24
         },
         "iOSlightLong": {
-            "name": "black100",
+            "name": "greyscale100",
             "alpha": 0.16,
             "offsetX": 0,
             "offsetY": 6,
             "radius": 30
         },
         "iOSlightMedium": {
-            "name": "black100",
+            "name": "greyscale100",
             "alpha": 0.13,
             "offsetX": 0,
             "offsetY": 3,
             "radius": 20
         },
         "iOSlightShort": {
-            "name": "black100",
+            "name": "greyscale100",
             "alpha": 0.1,
             "offsetX": 0,
             "offsetY": 1,
@@ -136,8 +136,8 @@
         "greyscale60": "#e3e8ec",
         "greyscale70": "#c3ccd2",
         "greyscale80": "#8697a4",
-        "textSecondary": "#505b635a",
-        "textTertiary": "#6b7e8b50",
+        "textSecondary": "#5a505b63",
+        "textTertiary": "#506b7e8b",
         "textPrimaryOnDarkBackground": "#ffffff",
         "greyscale90": "#606c74",
         "greyscale100": "#2d2e2e",
@@ -449,7 +449,7 @@
             "family": "Inter, Inter-SemiBold",
             "size": 16,
             "weight": 400,
-            "lineheight": 20,
+            "lineheight": 24,
             "letterspacing": 0
         },
         "headerLight": {

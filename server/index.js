@@ -41,7 +41,7 @@ function cleanStyles(){
   delete styleDictionary;
 }
 
-const rgbToHex = (r, g, b) => '#' + [r, g, b].map(x => {
+const rgbToHex = (r, g, b) => [r, g, b].map(x => {
   const hex = x.toString(16)
   return hex.length === 1 ? '0' + hex : hex
 }).join('')
@@ -71,7 +71,7 @@ function getColorsBase(artboards, globalStyles) {
         var itemOpacity = ""
       }
       const colorObj = {
-        [getStyleName(item.styles.fill, globalStyles).replace('/','')]: rgbToHex(rbaObj('r'),rbaObj('g'),rbaObj('b'))+itemOpacity
+        [getStyleName(item.styles.fill, globalStyles).replace('/','')]: "#"+itemOpacity+rgbToHex(rbaObj('r'),rbaObj('g'),rbaObj('b'))
       };
 
       Object.assign(colors, colorObj);
@@ -227,7 +227,7 @@ function getElevationBase(artboards, globalStyles) {
       const shadowsObj = {
         [getStyleName(item.styles.effect, globalStyles).replace('/','')]: {
           //name: rgbToHex(rbaObj('r'),rbaObj('g'),rbaObj('b')),
-          name: 'black100', // HARDCODE
+          name: 'greyscale100', // HARDCODE!!!!
           alpha: Number(item.effects[0].color.a.toPrecision(2)),
           offsetX: item.effects[0].offset.x,
           offsetY: item.effects[0].offset.y,
